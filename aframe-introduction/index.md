@@ -55,6 +55,19 @@ A-Frame提供了丰富的js接口，例如，使用`document.querySelector()`方
           material="color: tomato; metalness: 0.7"></a-entity>
 ```
 这样的模式大大提高的代码的复用性，我们可以方便地使用别人开发好的组件；同时这种模式的开发自由度高，我们也可以根据自己的需求开发自己的组件。
+### 3.7 支持3D模型
+A-Frame支持COLLADA的.DAE 3D模型文件，以及Wavefront的.OBJ 3D模型文件和.MTL材料文件。
+
+### 3.8 支持资源管理
+A-Frame通过`<a-assets>`标签，提供资源（图像、视频、3D模型等）的预加载功能。资源加载完毕之后才播放场景（也可以设置一个最长等待时间，加载超时后强制播放场景）。
+
+### 3.9 目前存在的不足
+* 只能播放一个场景，没有漫游功能
+* 全景图播放将整张图直接加载播放，加载速度慢
+* 不能添加链接
+* 不支持`<iframe>`
+* 不保证支持平板？
+* ……
 
 ## 4 A-Frame的学习和使用
 ### 4.1 学习资源
@@ -63,6 +76,7 @@ A-Frame提供了丰富的js接口，例如，使用`document.querySelector()`方
 > * [A-Frame Github仓库][aframe-github]
 > * [A-Frame 实例模板][aframe-boilerplate]
 > * [A-Frame 优质学习材料、资源合集][awesome]
+> * [更多A-Frame实例](./examples)
 
 ### 4.3 Helloworld
 使用A-Frame，我们可以直接引用其官网的js文件，也可以下载到本地使用。
