@@ -14,9 +14,9 @@
       <a-assets>
 		<img src="./assets/sky1-small.jpg" id="imgsky1"/>
 		<img src="./assets/sky2-small.jpg" id="imgsky2"/>
-		<!-- <img src="./assets/sky4-small.jpg" id="imgsky4"/> -->
+		<img src="./assets/sky4-small.jpg" id="imgsky4"/>
 		<img src="./assets/sky5-small.jpg" id="imgsky5"/>
-		<!-- <img src="./assets/sky6-small.jpg" id="imgsky6"/> -->
+		<img src="./assets/sky6-small.jpg" id="imgsky6"/>
 		
 		<img src="./assets/sky1.jpg" id="sky1jpg"/>
 		<img src="./assets/sky2.jpg" id="sky2jpg"/>
@@ -37,11 +37,9 @@
 				<a-obj-model class="enemy" src="#obj" mtl="#mtl" scale="0.1 0.1 0.1" rotation="0 {{x*-45-15}} 30">
 					<!-- Attach collision handler animations. -->
 					<!-- <a-animation attribute="opacity" begin="collider-hit" dur="400" ease="linear"
-					   from="1" to="0"></a-animation> -->
-					<a-animation attribute="scale" begin="mouseenter" dur="400" ease="linear"
-					   to="0 0 0"></a-animation>
-					<a-animation attribute="rotation" dur="4000" ease="linear" repeat="indefinite"
-					   direction="alternate" to="0 360 30"></a-animation>
+					   from="1" to="0"></a-animation>
+					<a-animation attribute="scale" begin="collider-hit" dur="400" ease="linear"
+					   to="0 0 0"></a-animation> -->
 				</a-obj-model>
 				{% endfor %}
 			</a-entity>
