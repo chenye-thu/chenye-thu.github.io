@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Model</title>
+    <meta name="description" content="Model - A-Frame">
+    <script src="../aframe-v0.2.0-OBJ.js"></script>
+	<script src="../aframe-layout-component.js"></script>
+	<script src="../aframe-template-component-nolinks.js"></script>
+	<script src="../aframe-cubemap-component-krpano.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+		<img src="./assets/sky1-small.jpg" id="imgsky1"/>
+		<img src="./assets/sky2-small.jpg" id="imgsky2"/>
+		<img src="./assets/sky4-small.jpg" id="imgsky4"/>
+		<img src="./assets/sky5-small.jpg" id="imgsky5"/>
+		<img src="./assets/sky6-small.jpg" id="imgsky6"/>
+<!--         <a-asset-item id="obj" src="./assets/CRon/Ron.obj"></a-asset-item>
+        <a-asset-item id="mtl" src="./assets/CRon/Ron.mtl"></a-asset-item> -->
+        <a-asset-item id="obj" src="./assets/spacecraft/SpaceCraft.obj"></a-asset-item>
+        <a-asset-item id="mtl" src="./assets/spacecraft/SpaceCraft.mtl"></a-asset-item>
+<!--         <a-asset-item id="xz-obj" src="./assets/peugeot-308/peugeot-308.obj"></a-asset-item>
+        <a-asset-item id="xz-mtl" src="./assets/peugeot-308/peugeot-308.mtl"></a-asset-item> -->
+        <!-- <a-asset-item id="xiangzi" src="./assets/xiangzi.dae"></a-asset-item> -->
+		<script id="template" type="text/x-nunjucks-template">
+			<a-entity layout="type: circle; radius: 10"  position="0 0.5 0">
+				<a-animation attribute="rotation" dur="30000" easing="linear" repeat="indefinite" to="0 -360 0"></a-animation>
+
+				{% for x in range(num) %}
+				<a-obj-model class="enemy" src="#obj" mtl="#mtl" scale="0.1 0.1 0.1" rotation="0 {{x*-45-15}} 30">
+					<!-- Attach collision handler animations. -->
+					<!-- <a-animation attribute="opacity" begin="collider-hit" dur="400" ease="linear"
+					   from="1" to="0"></a-animation>
+					<a-animation attribute="scale" begin="collider-hit" dur="400" ease="linear"
+					   to="0 0 0"></a-animation> -->
+				</a-obj-model>
+				{% endfor %}
+			</a-entity>
+		</script>
+      </a-assets>
+
+	  <a-entity template="src: #template" data-num="8"></a-entity>
+
+	<a-camera id="player" position="0 1.8 0">
+		<a-cursor color="#2E3A87" fuse=true>
+	</a-camera>
+
+	<a-sky id="sky1" src="./assets/sky1.jpg" visible="false"></a-sky>
+	<a-sky id="sky2" src="./assets/sky2.jpg" visible="false"></a-sky>
+	<!-- <a-sky id="sky3" src="./assets/sky3.jpg" visible="false"></a-sky> -->
+	<!-- <a-entity id="sky4" cubemap="folder: ./assets/sky4.tiles/" visible="true"></a-entity> -->
+	<a-entity id="sky5" cubemap="folder: ./assets/sky5.tiles/" visible="true"></a-entity>
+	<!-- <a-entity id="sky6" cubemap="folder: ./assets/sky6.tiles/" visible="false"></a-entity> -->
+	
+	<a-image id="tosky1" src="#imgsky1" position="20 -10 -20" width="10" height="5"></a-image>
+	<a-image id="tosky2" src="#imgsky2" position="-20 -10 -20" width="10" height="5"></a-image>
+	<!-- <a-image id="tosky4" src="#imgsky4" position="30 -10 -20" width="10" height="5"></a-image> -->
+	<a-image id="tosky5" src="#imgsky5" position="0 -10 -20" width="10" height="5"></a-image>
+	<!-- <a-image id="tosky6" src="#imgsky6" position="-50 -10 -20" width="10" height="5"></a-image> -->
+	<!-- <a-curvedimage src="#imgsky1" radius="20" height="5" theta-length="28" rotation="0 125 0"></a-curved-image> -->
+	
+    </a-scene>
+	
+	<script>
+		var presentSkyId = "sky5";
+		var bt1 = document.querySelector('#tosky1');
+		//bt2.emit('click');
+		//bt2.pause();
+		bt1.addEventListener('click', function () {
+			setSkyVisible(presentSkyId, false);
+			setSkyVisible("sky1", true);
+			presentSkyId = "sky1";	
+		});
+		var bt2 = document.querySelector('#tosky2');
+		//bt2.emit('click');
+		//bt2.pause();
+		bt2.addEventListener('click', function () {
+			setSkyVisible(presentSkyId, false);
+			setSkyVisible("sky2", true);
+			presentSkyId = "sky2";	
+		});
+		//var bt4 = document.querySelector('#tosky4');
+		////bt2.emit('click');
+		////bt2.pause();
+		//bt4.addEventListener('click', function () {
+		//	setSkyVisible(presentSkyId, false);
+		//	setSkyVisible("sky4", true);
+		//	presentSkyId = "sky4";	
+		//});
+		var bt5 = document.querySelector('#tosky5');
+		//bt2.emit('click');
+		//bt2.pause();
+		bt5.addEventListener('click', function () {
+			setSkyVisible(presentSkyId, false);
+			setSkyVisible("sky5", true);
+			presentSkyId = "sky5";	
+		});
+		//var bt6 = document.querySelector('#tosky6');
+		////bt2.emit('click');
+		////bt2.pause();
+		//bt6.addEventListener('click', function () {
+		//	setSkyVisible(presentSkyId, false);
+		//	setSkyVisible("sky6", true);
+		//	presentSkyId = "sky6";	
+		//});		
+		function setSkyVisible(id, value){
+			var presentSky = document.querySelector('#'+id);
+			presentSky.setAttribute('visible', value);
+		}
+	</script>
+  </body>
+</html>
