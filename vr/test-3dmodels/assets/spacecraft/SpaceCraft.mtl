@@ -7,7 +7,7 @@ Kd 1.0 1.0 1.0
 Ka 0.001 0.001 0.001
 Ks 0.8980392156862745 0.8980392156862745 0.8980392156862745
 Ke 0.0 0.0 0.0
-map_Bump BUMP_0.JPG
-map_Kd COLOR_0.JPG
+map_Bump bump_0.JPG
+map_Kd color_0.JPG
 map_Ks specular_0.jpg
 
