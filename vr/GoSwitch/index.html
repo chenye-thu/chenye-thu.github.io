@@ -14,7 +14,7 @@
     <a-asset>
 		<img src="../assets/sky5.jpg" alt="" id="sky5"/>
 		<img src="../assets/sky2-small.jpg" alt="" id="sky2-small"/>
-		<img src="../assets/one_Number_256px.png" alt="" id="one_Number"/>
+		<img src="../assets/One_Number_256px.png" alt="" id="One_Number"/>
 		<img src="../assets/Two_Number_256px.png" alt="" id="Two_Number"/>
 	</a-asset>
 	
@@ -26,7 +26,7 @@
 	
 	<!-- <a-image width="1" height="0.5" src="../assets/sky2-small.jpg" position="0 -2.5 0" rotation="90 0 0"></a-image> -->
 	<!-- 前进开关 -->
-	<a-ring id="goSwitch" radius-inner="0" radius-outer="0.25" position="0 -2.9 0" src="#one_Number" rotation="-90 0 0" scale="1.5 1.5 1"></a-ring>
+	<a-ring id="goSwitch" radius-inner="0" radius-outer="0.25" position="0 -2.9 0" src="#One_Number" rotation="-90 0 0" scale="1.5 1.5 1"></a-ring>
 	
 	<!-- 全景图背景 -->
     <a-sky color="#fff" src="#sky5"></a-sky>
@@ -89,13 +89,13 @@
 		if(ifForward == false){
 			t1 = window.setInterval(goForward,deltaT);
 			ifForward = true;
-			goSwitch.setAttribute("src","#two_Number");
+			goSwitch.setAttribute("src","#Two_Number");
 			console.log("Go forward!");
 		}
 		else {
 			window.clearInterval(t1); 
 			ifForward = false;
-			goSwitch.setAttribute("src","#one_Number");
+			goSwitch.setAttribute("src","#One_Number");
 			console.log("Stop going forward!");
 		}	
 	});
