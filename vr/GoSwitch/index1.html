@@ -1,0 +1,84 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>collide</title>
+  <meta name="author" content="Ye Chen">
+  <meta name="description" content="Test collider in A-Frame">
+  <script src="../aframe-v0.2.0-OBJ.js"></script>
+  <script src="../aframe-extras.min.js"></script>
+</head>
+
+<body>
+  <a-scene physics="debug: true">
+	<!-- 预先加载的资源 -->
+    <a-asset>
+		<img src="../assets/sky5.jpg" alt="" id="sky5"/>
+	</a-asset>
+	
+	<!-- 用户 -->
+	<a-camera id="player" kinematic-body="shape: auto" universal-controls jump-ability="enableDoubleJump: true; distance: 3;" positon="0 1.8 0" rotation="0 -180 0">
+		<a-cursor id="cursor" color="#0f0" fuse="true"></a-cursor>
+		<!-- <a-animation attribute="position" begin="2000" dur="2000" to="0 1.8 -10"></a-animation> -->
+	</a-camera>
+	
+	<!-- <a-image width="1" height="0.5" src="../assets/sky2-small.jpg" position="0 -2.5 0" rotation="90 0 0"></a-image> -->
+	<!-- 前进开关 -->
+	<a-ring id="goSwitch" radius-inner="0" radius-outer="0.25" position="0 -2.9 0" src="../assets/sky2-small.jpg" rotation="-90 0 0"></a-ring>
+	
+	<!-- 全景图背景 -->
+    <a-sky color="#fff" src="#sky5"></a-sky>
+	
+	<a-plane static-body color="#000" height="500" width="500" rotation="90 0 0" position="0 -3 0" transparent="true" opacity="0.5"></a-plane>
+	
+	<a-box static-body depth="2" width="4" height="6" position="0 0 -5" src="../assets/sky2.jpg"></a-box>
+	<a-box static-body depth="2" width="4" height="6" position="0 0 5" src="../assets/sky2.jpg"></a-box>
+	<a-box static-body depth="2" width="4" height="6" position="-10 0 -10" src="../assets/sky2.jpg"></a-box>
+	
+  </a-scene>
+  <script type="text/javascript">
+	var camera = document.querySelector("#player");
+	console.log("Get entity:"+camera.id);
+	var goSwitch = document.querySelector("#goSwitch");
+	var velocity = 0.004;
+	var velocity3 = {x:0, y:0, z:-0.004};
+	var deltaT = 10;
+	var ifForward = false;
+	function goForward(){
+		//console.log("Go forward!");
+		var rotationCamera = camera.getAttribute("rotation").y;
+		var positionCamera = camera.getAttribute("position");
+		var positionGoSwitch = goSwitch.getAttribute("position");
+		var deltaP = {x:0, y:0, z:-2};
+		deltaP.x = deltaT*velocity3.x;
+		deltaP.y = deltaT*velocity3.y;
+		deltaP.z = deltaT*velocity3.z;
+		positionCamera.x = positionCamera.x + deltaP.x;
+		positionCamera.y = positionCamera.y + deltaP.y;
+		positionCamera.z = positionCamera.z + deltaP.z;
+		//camera.setAttribute("velocity", {x:0, y:0, z:-5});
+		camera.setAttribute("position", positionCamera);
+		positionGoSwitch.x = positionCamera.x;
+		positionGoSwitch.z = positionCamera.z;
+		goSwitch.setAttribute("position", positionGoSwitch);
+        //console.log(positionCamera);		
+	}
+	//var t1 = window.setInterval(goForward,deltaT);
+	//goForward();
+	var t1;
+	goSwitch.addEventListener("click",function (){
+		if(ifForward == false){
+			t1 = window.setInterval(goForward,deltaT);
+			ifForward = true;
+			console.log("Go forward!");
+		}
+		else {
+			window.clearInterval(t1); 
+			ifForward = false;
+			console.log("Stop going forward!");
+		}	
+	});
+
+  </script>
+</body>
+</html>
+
