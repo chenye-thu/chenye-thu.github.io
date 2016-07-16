@@ -6,20 +6,52 @@
   <meta name="description" content="Test collider in A-Frame">
   <script src="../aframe-v0.2.0-OBJ.js"></script>
   <script src="../aframe-extras.min.js"></script>
-  <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+  <script src="../aframe-fence-component.min.js"></script>
+  <!-- <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script> -->
+  <!-- <script src="js/components/spawner.js"></script> -->
+  <!-- <script src="js/components/laser-behavior.js"></script> -->
+  <!-- <script src="js/components/collider.js"></script> -->
+  <!-- <script src="js/components/explode.js"></script> -->
+  <style type="text/css">
+  .score {
+        color: white;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        font-family: monospace;
+        font-size: 20px;
+        z-index: 99999;
+      }
+  </style>
 </head>
 
 <body>
-  <a-scene physics="debug: true">
+  <a-scene physics="debug: false">
 	<!-- 预先加载的资源 -->
     <a-asset>
 		<img src="../assets/sky5.jpg" alt="" id="sky5"/>
 		<img src="../assets/one_Number_256px.png" alt="" id="one_Number"/>
 		<img src="../assets/Two_Number_256px.png" alt="" id="Two_Number"/>
+		
+<!-- 		<a-mixin id="cube"
+               geometry="primitive: box; height: 2; width: 2; depth: 2;"
+               material="color: #167341; roughness: 1.0; metalness: 0.2;"></a-mixin>
+		<a-mixin id="laser"
+			   geometry="primitive: box; height: 2; width: 0.1; depth: 0.1"
+			   material="color: yellow;"
+			   laser-behavior collider></a-mixin>
+		<a-mixin id="enemy" explode="on: collide"></a-mixin> -->
+		<a-mixin id="enemyPosition" attribute="position" to="0 0 -1000" dur="500" begin="disappear"></a-mixin>
+		<a-mixin id="enemyScale" attribute="scale" to="0 0 0" dur="500" begin="collided"></a-mixin>
+		<a-mixin id="enemyMixin" static-body="" depth="2" width="4" height="6" src="./img/Obama.jpg"></a-mixin>
+				
 	</a-asset>
 	
+	
+	<div class="score">Score: 0</div>
+	
 	<!-- 用户 -->
-	<a-camera id="player" kinematic-body="shape: auto" universal-controls jump-ability="enableDoubleJump: true; distance: 3;" positon="0 1.8 0" rotation="0 -180 0">
+	<a-camera id="player" kinematic-body="shape: auto" universal-controls jump-ability="enableDoubleJump: true; distance: 3;" positon="0 1.8 0" rotation="0 -180 0" fence="width: 500; depth: 500; x0: 0; z0: 0">
 		<a-cursor id="cursor" color="#0f0" fuse="true"></a-cursor>
 		<!-- <a-animation attribute="position" begin="2000" dur="2000" to="0 1.8 -10"></a-animation> -->
 	</a-camera>
@@ -31,26 +63,50 @@
 	<!-- 全景图背景 -->
     <a-sky color="#fff" src="#sky5"></a-sky>
 	
-	<a-plane static-body color="#000" height="500" width="500" rotation="90 0 0" position="0 -3 0" transparent="true" opacity="0.5"></a-plane>
 	
-	<a-box static-body depth="2" width="4" height="6" position="0 0 -5" src="../assets/sky2.jpg"></a-box>
-	<a-box static-body depth="2" width="4" height="6" position="0 0 5" src="../assets/sky2.jpg"></a-box>
-	<a-box static-body depth="2" width="4" height="6" position="-10 0 -10" src="../assets/sky2.jpg"></a-box>
-	<a-box static-body depth="2" width="4" height="6" position="0 0 -10" src="../assets/sky2.jpg"></a-box>
-	<a-box static-body depth="2" width="4" height="6" position="20 0 5" src="../assets/sky2.jpg"></a-box>
-	<a-box static-body depth="2" width="4" height="6" position="50 0 20" src="../assets/sky2.jpg"></a-box>	
-	<a-box static-body depth="2" width="4" height="6" position="-100 0 100" src="../assets/sky2.jpg"></a-box>	
-	<a-box static-body depth="2" width="4" height="6" position="100 0 -50" src="../assets/sky2.jpg"></a-box>	
-	<a-box static-body depth="2" width="4" height="6" position="200 0 50" src="../assets/sky2.jpg"></a-box>	
-	<a-box static-body depth="2" width="4" height="6" position="-200 0 -100" src="../assets/sky2.jpg"></a-box>	
+	<a-entity static-body geometry="primitive: plane; height: 500; width: 500" rotation="90 0 0" position="0 -3 0" 
+		 material="shader: standard; src: url(./img/floor.jpg); side: double; repeat: 30 30"></a-entity>
+	<!-- <a-plane static-body color="#000" height="500" width="500" rotation="90 0 0" position="0 -3 0" transparent="true" opacity="0.5"></a-plane> -->
 	
-	<a-entity text="text: What's up" position="0 0 0"></a-entity>
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="0 0 -5" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="0 0 5" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="-10 0 -10" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="0 0 -10" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="20 0 5" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="50 0 20" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>	
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="-100 0 100" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>	
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="100 0 -50" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>	
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="200 0 50" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>	
+	<a-box class="enemy" static-body depth="2" width="4" height="6" position="-200 0 -100" src="./img/panda.jpg">
+		<a-animation mixin="enemyPosition"></a-animation>
+		<a-animation mixin="enemyScale"></a-animation></a-box>	
+	
+	<!-- <a-entity text="text: What's up" position="0 0 0"></a-entity> -->
 	
 	
   </a-scene>
   <script type="text/javascript">
 	var camera = document.querySelector("#player");
 	console.log("Get entity:"+camera.id);
+	var enemies = document.querySelectorAll('[mixin="enemy"]');
 	var goSwitch = document.querySelector("#goSwitch");
 	var velocity0 = 0.004;
 	var velocity = 0.004;
@@ -84,21 +140,72 @@
 	}
 	//var t1 = window.setInterval(goForward,deltaT);
 	//goForward();
-	var t1;
+	var goTimer;
 	goSwitch.addEventListener("click",function (){
 		if(ifForward == false){
-			t1 = window.setInterval(goForward,deltaT);
+			goTimer = window.setInterval(goForward,deltaT);
 			ifForward = true;
 			goSwitch.setAttribute("src","#two_Number");
 			console.log("Go forward!");
 		}
 		else {
-			window.clearInterval(t1); 
+			window.clearInterval(goTimer); 
 			ifForward = false;
 			goSwitch.setAttribute("src","#one_Number");
 			console.log("Stop going forward!");
 		}	
 	});
+		
+		
+	var scoreEl = document.querySelector('.score');
+	var score = 0;
+	var stopTimer;
+	camera.addEventListener('collide', function (e) {
+		//window.clearInterval(goTimer); 
+		body = e.detail.body.el;
+		console.log(body.getAttribute('class'));
+		if( body.getAttribute('class')=='enemy' ){
+			score+=1;
+			scoreEl.innerHTML = 'Score: ' + score;
+			body.emit('collided');
+			setTimeout("body.emit('disappear');",500);
+			//delete body;
+			//document.removeElement(body);
+			//setTimeout("delete body;",500);
+			//body.removeAttribute('static-body');
+		}
+		
+		//e.detail.body.el.setAttribute("visible", false);
+		//var body = document.querySelector("#"+e.detail.body.id);
+		//body.setAttribute("visible", false);
+		//goTimer = window.setInterval(goForward,deltaT);
+		console.log('Player has collided with body #' + e.detail.body.id);
+
+		console.log(e.detail.target.el.id);  // Original entity (playerEl).
+		console.log(e.detail.body);    // Other entity, which playerEl touched.
+		console.log(e.detail.contact);    // Stats about the collision (CANNON.ContactEquation).
+		console.log(e.detail.contact.ni); // Normal (direction) of the collision (CANNON.Vec3).
+	});
+	
+
+	var increaseCounter = function(e) {
+	console.log('Player has collided with body #' + e.detail.body.id);
+		var enemy = e.currentTarget;
+		//if (deadEnemies.indexOf(enemy) != -1) { return; }
+		//deadEnemies.push(enemy);
+		score+=1;
+		scoreEl.innerHTML = 'Score: ' + score;
+		//if (enemies.length === deadEnemies.length) {
+		  //endEl.style.display = 'block';
+		//}
+	}
+	
+	/*
+	enemies = Array.prototype.slice.call(enemies);
+	enemies.forEach(function(enemyEl) {
+		enemyEl.addEventListener('collide', increaseCounter);
+	});
+	*/
 
   </script>
 </body>
