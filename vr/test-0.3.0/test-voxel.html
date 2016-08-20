@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Model</title>
+    <meta name="description" content="Model - A-Frame">
+    <script src="../aframe-v0.3.0.min.js"></script>
+	<script src="../aframe-layout-component.js"></script>
+	<script src="../aframe-template-component-nolinks.js"></script>
+	<script src="../aframe-cubemap-component-krpano.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="obj" src="./assets/testVoxel.obj"></a-asset-item>
+        <a-asset-item id="mtl" src="./assets/testVoxel.mtl"></a-asset-item>
+      </a-assets>
+	  
+		<a-camera id="player" position="0 1.8 0">
+			<a-cursor color="#2E3A87" fuse=true>
+		</a-camera>
+		
+	  <a-entity position="0 0 -5">
+		<a-obj-model src="#obj" mtl="#mtl" scale="0.1 0.1 0.1" posotion="0 0 0" rotation="0 0 0"></a-obj-model>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
