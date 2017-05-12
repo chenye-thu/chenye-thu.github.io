@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
+  <title>夜凉如水的官方博客</title>
+  <id>http://chenye-thu.github.io/blog</id>
+  <updated>2017-05-12T21:39:04+08:00</updated>
+  <subtitle>人丑就要多读书</subtitle>
+  <link href="http://chenye-thu.github.io/blog"></link>
+  <author>
+    <name>夜凉如水的官方博客</name>
+  </author>
+  <entry>
+    <title>QCustomplot学习笔记1-图形交互</title>
+    <updated>2017-05-12T16:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-05-12:/blog/qcustomplot1-intereaction.html</id>
+    <content type="html">&lt;p&gt;QCustomplot图形交互接口学习。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/blog/qcustomplot1-intereaction.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>简洁的静态博客构建工具 —— 纸小墨（InkPaper）</title>
+    <updated>2016-07-11T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2016-07-11:/blog/ink-blog-tool.html</id>
+    <content type="html">&lt;p&gt;纸小墨（InkPaper）是一个GO语言编写的开源静态博客构建工具，可以快速搭建博客网站。它无依赖跨平台，配置简单构建快速，注重简洁易用与更优雅的排版。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/blog/ink-blog-tool.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>An Elegant Static Blog Generator —— InkPaper</title>
+    <updated>2016-07-11T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2016-07-11:/blog/ink-blog-tool-en.html</id>
+    <content type="html">&lt;p&gt;InkPaper is an static blog generator developed by Golang, No dependencies, Cross platform, Easy use, Fast build, Elegant theme.&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/blog/ink-blog-tool-en.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+</feed>
