@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-05-15T22:08:13+08:00</updated>
+  <updated>2017-05-17T23:06:14+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>coding记录-20170517</title>
+    <updated>2017-05-17T22:59:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-05-17:/coding-dairy-20170517.html</id>
+    <content type="html">&lt;p&gt;编程记录:Qt程序的链接库问题；VS2010使用Qt。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170517.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>coding记录-20170516</title>
+    <updated>2017-05-17T19:40:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-05-17:/coding-dairy-20170516.html</id>
+    <content type="html">&lt;p&gt;编程记录:在Qt中使用PanEngine记录。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170516.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>周末日记-摘桑葚</title>
     <updated>2017-05-14T21:40:00+08:00</updated>

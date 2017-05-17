@@ -45,10 +45,10 @@
 </script>
 
 
-        <meta name="keywords" content="web,技术,">
-        <meta name="description" content="个人博客建立">
+        <meta name="keywords" content="编程,Qt,PanEngine,">
+        <meta name="description" content="coding记录-20170516">
         <meta name="author" content="夜凉如水">
-        <title>个人博客建立</title>
+        <title>coding记录-20170516</title>
     </head>
     <body>
         <article class="container">
@@ -65,42 +65,70 @@
 </header>
 
             <article class="main article">
-                <h1 class="title">个人博客建立</h1>
+                <h1 class="title">coding记录-20170516</h1>
                 <section class="info">
                     <span class="avatar" style="background-image: url(/images/icon.png);"></span>
                     <a class="name" href="/about.me.html">夜凉如水</a>
                     
-                    <span class="date" data-time="1494556800"><span class="from"></span></span>
+                    <span class="date" data-time="1495021200"><span class="from"></span></span>
                     
-                    <span class="tags"><a class="tag" href="/tag/web/index.html">web</a><a class="tag" href="/tag/%e6%8a%80%e6%9c%af/index.html">技术</a></span>
+                    <span class="tags"><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a><a class="tag" href="/tag/Qt/index.html">Qt</a><a class="tag" href="/tag/PanEngine/index.html">PanEngine</a></span>
                 </section>
                 <article class="content"><blockquote>
-<p>2017-05-12 周五 晴</p>
+<p>2017-05-16 周二 晴 北京 院里</p>
 </blockquote>
 
-<h2>为什么建立博客</h2>
+<h2>在Qt中使用PanEngine记录</h2>
 
-<p>之前读一本软件工程的书，说到建议每个人都要坚持写博客，并罗列了种种好处，诸如总结自己，帮助他人等等。当时我是非常认同的，但无奈自己时间有限（其实是太懒、太贪玩），一直没有实施。
-后来与<a href="http://chuxiangyuan.github.io">楚经理</a>交流时，看了他在<a href="http://github.com">GitHub</a>上搭建的个人博客，非常羡慕。</p>
+<ol>
+<li>PanEngine 2014 demo工程在<strong>VS2010</strong>中成功编译运行。</li>
+<li>首先在<strong>Qt4.8.1</strong>中使用PanEngine，报错一大堆，失败。</li>
+<li>换成<strong>Qt5.7.0</strong>，构建成功，可以运行。但是在执行具体示例时出错，程序崩溃。</li>
 
-<p>作为一名对编程颇有兴趣（然而资质太差无所建树）的人，在编程中经常会遇到各种各样的问题。在大多数情况下搜索的答案都是在大家的博客当中。当这个问题暂时解决，我便将其抛之脑后，不再回顾。以至于再次遇到同样的问题时，我还是要再去查找相关内容。</p>
+<li><p>调试发现是执行<code>PanEngine</code>类内的虚函数时出错。（该类是从dll中调用的）</p>
 
-<p>在不断的类似经历中，我逐渐体会到了博客总结自己、帮助他人的意义。因此，在这次考完博士之后，稍有时间，便下定决心创建自己的博客，记录自己的点点滴滴。</p>
+<pre><code class="language-cpp">#define PANENGINE_API _declspec(dllexport)
+...
+class PANENGINE_API PanEngine {
+public:
+PanEngine(void);
+virtual string pe_set_configuration(map&lt;string, string&gt;&amp; config) = 0;
+...
+}
+</code></pre></li>
 
-<h2>博客的建立</h2>
+<li><p>但是同样在<code>PanEngineX.h</code>内使用如下代码调用的函数可以执行成功。</p>
 
-<p>因为博客对我来说最重要的就是记录，是写作本身，所以静态网页足矣。那么GitHub的pages功能就是一个不错的选择。</p>
+<pre><code class="language-cpp">#define PANENGINE_API _declspec(dllexport)
+...
+extern &quot;C&quot; PANENGINE_API PanEngine* definePanEngineUser(char* msg);
+</code></pre></li>
 
-<p>之前跟<a href="http://chuxiangyuan.github.io">楚经理</a>了解到有静态博客生成器这种东西存在，这次便查找了一番，查到了<a href="http://www.chole.io/">纸小墨</a>这个工具，用起来挺方便的。
-之前也了解过Markdown语言了，所以上手很快，网站瞬间生成了。</p>
+<li><p>因此怀疑是调用dll中的类出错。查了一下感觉没有错。</p></li>
 
-<h2>寄语</h2>
+<li><p>使用如下方式调用，仍然出错。</p>
 
-<p>其实博客搭建啊，技术啊，以及页面美观什么的都是其次。最重要的是写作，希望后面自己能够保持这份热情，坚持写作，每周至少一篇。特别是学到东西的时候，不要只记在纸上，正确写到博客里。</p>
+<pre><code class="language-cpp">typedef PanEngine* (*GetPanEngine)(char *);
+...
+PanEngine* user;
+char msg[256];
+QLibrary myLib(&quot;PanEngineX.dll&quot;);
+if(myLib.load())
+{
+    GetPanEngine getPanEngine = (GetPanEngine)myLib.resolve(&quot;definePanEngineUser&quot;);
+    if(getPanEngine)
+    {
+        user = getPanEngine(msg);
+    }
+}
+</code></pre></li>
 
-<p>我个人属于不善言谈的类型，文笔不好，但这不要紧，希望自己坚持写，肯定会越写越好！</p>
+<li><p>怀疑是<code>include</code>的文件不一样导致的，修改了两个，还是不行。毕竟VS和Qt都各有一套头文件，所以尝试把所有<code>include</code>的文件都修改一遍试试。还是不行，因为各自的文件是一层一层引用的，会出问题。</p></li>
 
-<p>虽然资质很差，但相信努力可以弥补！</p>
+<li><p>尝试安装了VS2010的Qt插件，编译成功，但是例子运行时依然会崩溃，实在找不到问题所在了。</p></li>
+</ol>
+
+<p><strong><em>失败了&hellip;</em></strong></p>
 </article>
                 <section class="author">
                     <div class="avatar" style="background-image: url(/images/icon.png);"></div>
@@ -111,13 +139,13 @@
                     
                     <section class="nav prev more">
                         <div class="head">上篇文章</div>
-                        <a class="link" href="/qcustomplot1-intereaction.html">QCustomplot学习笔记1-图形交互</a>
+                        <a class="link" href="/coding-dairy-20170517.html">coding记录-20170517</a>
                     </section>
                     
                     
                     <section class="nav next more">
                         <div class="head">下篇文章</div>
-                        <a class="link" href="/aframe-introduction.html">A-Frame介绍</a>
+                        <a class="link" href="/20170514-zhaisangshen.html">周末日记-摘桑葚</a>
                     </section>
                     
                 </section>
