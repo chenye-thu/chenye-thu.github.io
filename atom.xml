@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-05-17T23:06:14+08:00</updated>
+  <updated>2017-05-18T10:29:42+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>coding记录-20170518</title>
+    <updated>2017-05-18T19:40:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-05-18:/coding-dairy-20170518.html</id>
+    <content type="html">&lt;p&gt;编程记录:在Qt中使用PanEngine记录（续）。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170518.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>coding记录-20170517</title>
     <updated>2017-05-17T22:59:00+08:00</updated>
