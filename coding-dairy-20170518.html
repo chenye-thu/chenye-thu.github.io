@@ -70,7 +70,7 @@
                     <span class="avatar" style="background-image: url(/images/icon.png);"></span>
                     <a class="name" href="/about.me.html">夜凉如水</a>
                     
-                    <span class="date" data-time="1495107600"><span class="from"></span></span>
+                    <span class="date" data-time="1495118400"><span class="from"></span></span>
                     
                     <span class="tags"><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a><a class="tag" href="/tag/Qt/index.html">Qt</a><a class="tag" href="/tag/PanEngine/index.html">PanEngine</a></span>
                 </section>
@@ -85,10 +85,13 @@
 <p>仍然想继续研究一下为什么PanEngine用在Qt里不行。因为毕竟编译是通过的，而且可以运行，只不过是在执行具体计算的例子时出错，程序崩溃。（在执行到<code>PanEngine</code>类内的虚函数时出错）</p>
 
 <ol>
-<li>百度查到一篇博文：<a href="http://blog.csdn.net/jackzhaoyuxiang/article/details/41550073">Qt调用DLL动态库接口函数程序崩掉</a>。说到可能与<code>_stdcall</code>有关。</li>
-<li>查到有人说是编译器的问题，但是之前在VS里应该用的不是mingw了，还是不行啊，回头再试一下？</li>
-<li>又查到一篇博文：<a href="http://blog.csdn.net/fantasy999999999/article/details/40979581">Qt中隐式调用VS建立的dll动态库</a></li>
+<li>百度查到一篇博文：<a href="http://blog.csdn.net/jackzhaoyuxiang/article/details/41550073">Qt调用DLL动态库接口函数程序崩掉</a>。说到可能与<code>_stdcall</code>有关。简单试了一下，貌似不太行。</li>
+<li>查到有人说是编译器的问题，但是之前在VS里应该用的不是mingw了，还是不行啊，回头再试一下？又试了一下，还是不行。</li>
+<li>又查到一篇博文：<a href="http://blog.csdn.net/fantasy999999999/article/details/40979581">Qt中隐式调用VS建立的dll动态库</a>。于是使用VS2010编译器的Qt5.5.1，结果还是不行。</li>
+<li>又安装了<strong>Qt5.8.0</strong>，这已经是我查到的最新版本了，还是同样的问题，跪了……</li>
 </ol>
+
+<p><strong><em>我尽力了，真的尽力了，真的不行啊……TT</em></strong></p>
 </article>
                 <section class="author">
                     <div class="avatar" style="background-image: url(/images/icon.png);"></div>
