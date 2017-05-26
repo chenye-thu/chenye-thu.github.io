@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-05-18T22:21:33+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>WORD查找功能里通配符的使用</title>
+    <updated>2017-05-24T22:40:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-05-24:/learning-diary-20170524.html</id>
+    <content type="html">&lt;p&gt;在Word中怎样使用通配符进行查找。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/learning-diary-20170524.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>coding记录-20170518</title>
     <updated>2017-05-18T22:40:00+08:00</updated>
