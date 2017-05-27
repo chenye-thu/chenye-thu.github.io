@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-05-27T15:58:04+08:00</updated>
+  <updated>2017-05-27T16:52:55+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>个人域名购买-绑定GitHub Pages</title>
+    <updated>2017-05-27T16:40:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-05-27:/20170527-domain-name.html</id>
+    <content type="html">&lt;p&gt;在阿里云购买了域名，并与GitHub Pages里的博客绑定。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/20170527-domain-name.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>WORD查找功能里通配符的使用</title>
     <updated>2017-05-24T22:40:00+08:00</updated>
