@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-05-27T17:02:30+08:00</updated>
+  <updated>2017-06-22T11:14:46+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>Qt类声明中Q_OBJECT的作用与报错解决</title>
+    <updated>2017-06-22T11:13:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-06-22:/coding-dairy-20170622.html</id>
+    <content type="html">&lt;p&gt;编程记录:新建作图类继承自QCUstomPlot类，自带单坐标缩放功能；Qt类声明中Q_OBJECT的作用；加入Q_OBJECT后报错的解决。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170622.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Qt中qDebug()函数的使用</title>
+    <updated>2017-06-16T11:40:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-06-16:/coding-dairy-20170616.html</id>
+    <content type="html">&lt;p&gt;编程记录:qDebug()函数的使用。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170616.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>个人域名购买-绑定GitHub Pages</title>
     <updated>2017-05-27T16:40:00+08:00</updated>
@@ -83,16 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-05-12:/blog-created.html</id>
     <content type="html">&lt;p&gt;一只喜欢coding，但资质太差的狗，这次终于有窝了。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/blog-created.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>A-Frame介绍</title>
-    <updated>2016-06-04T16:00:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2016-06-04:/aframe-introduction.html</id>
-    <content type="html">&lt;p&gt;A-Frame是由Mozilla旗下的VR团队MozVR设计和维护的一个开源框架，使开发者不必学习3D绘图标准WebGL复杂的API，就能够轻松完成3D或VR网页的制作。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/aframe-introduction.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>

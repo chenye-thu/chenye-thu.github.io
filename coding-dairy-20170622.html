@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夜凉如水">
+<meta name="twitter:description" content="人丑就要多读书">
+<meta name="twitter:image:src" content="http://chenye-thu.github.io/images/avatar.png">
+
+<meta property="og:url" content="http://chenye-thu.github.io">
+<meta property="og:title" content="夜凉如水">
+<meta property="og:description" content="人丑就要多读书">
+<meta property="og:site_name" content="夜凉如水">
+<meta property="og:image" content="http://chenye-thu.github.io/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="夜凉如水">
+<meta itemprop="description" content="人丑就要多读书">
+<meta itemprop="image" content="http://chenye-thu.github.io/images/avatar.png">
+
+<link rel="canonical" href="http://chenye-thu.github.io">
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-itouch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/bundle/index.css">
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="编程,Qt,作图,QCustomPlot,">
+        <meta name="description" content="Qt类声明中Q_OBJECT的作用与报错解决">
+        <meta name="author" content="夜凉如水">
+        <title>Qt类声明中Q_OBJECT的作用与报错解决</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap">
+  <a class="index" href="/">
+    <img class="logo" src="/images/avatar.png" />
+    夜凉如水
+  </a>
+  <ul class="menu">
+      <li class="menu-item"><a href="/archive.html">归档</a></li>
+      <li class="menu-item"><a href="/tag.html">标签</a></li>
+      <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+  </ul>
+</header>
+
+            <article class="main article">
+                <h1 class="title">Qt类声明中Q_OBJECT的作用与报错解决</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/icon.png);"></span>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    
+                    <span class="date" data-time="1498101180"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a><a class="tag" href="/tag/Qt/index.html">Qt</a><a class="tag" href="/tag/%e4%bd%9c%e5%9b%be/index.html">作图</a><a class="tag" href="/tag/QCustomPlot/index.html">QCustomPlot</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>2017-06-22 周五 大雨 北京 院里</p>
+</blockquote>
+
+<h2>新建作图类，继承自QCUstomPlot类</h2>
+
+<p>因为需要同时作8张图，都要单坐标缩放的功能，因此想干脆新建一个类，继承自<code>QCUstomPlot</code>，把需要的功能都加上。类名取为<code>QCUstomPlotPlus</code>，最终成功版类代码如下：</p>
+
+<pre><code class="language-cpp">//声明。explicit是为了禁止隐式转换。
+class QCustomPlotPlus : public QCustomPlot
+{
+    Q_OBJECT  //重要！
+public:
+    explicit QCustomPlotPlus(QWidget *parent = 0);
+private slots:
+    void mousePressFun();
+    void mouseWheelFun();
+};
+//函数定义
+//构造函数：继承自QCustomPlot，所以用QCustomPlot(parent)。
+QCustomPlotPlus::QCustomPlotPlus(QWidget *parent) :
+  QCustomPlot(parent)
+{
+  //设置单坐标方向缩放和拖拽
+  bool t1 = connect(this, SIGNAL(mousePress(QMouseEvent*)), SLOT(mousePressFun()));
+  bool t2 = connect(this, SIGNAL(mouseWheel(QWheelEvent*)), SLOT(mouseWheelFun()));
+}
+//鼠标点击槽函数
+void QCustomPlotPlus::mousePressFun()
+{
+  // if an axis is selected, only allow the direction of that axis to be dragged
+  // if no axis is selected, both directions may be dragged
+  if (xAxis-&gt;selectedParts().testFlag(QCPAxis::spAxis))
+    axisRect()-&gt;setRangeDrag(xAxis-&gt;orientation());
+  else if (yAxis-&gt;selectedParts().testFlag(QCPAxis::spAxis))
+    axisRect()-&gt;setRangeDrag(yAxis-&gt;orientation());
+  else
+    axisRect()-&gt;setRangeDrag(Qt::Horizontal|Qt::Vertical);
+}
+//鼠标滚轮槽函数
+void QCustomPlotPlus::mouseWheelFun()
+{
+  // if an axis is selected, only allow the direction of that axis to be zoomed
+  // if no axis is selected, both directions may be zoomed
+  if (xAxis-&gt;selectedParts().testFlag(QCPAxis::spAxis))
+    axisRect()-&gt;setRangeZoom(xAxis-&gt;orientation());
+  else if (yAxis-&gt;selectedParts().testFlag(QCPAxis::spAxis))
+    axisRect()-&gt;setRangeZoom(yAxis-&gt;orientation());
+  else
+    axisRect()-&gt;setRangeZoom(Qt::Horizontal|Qt::Vertical);
+}
+</code></pre>
+
+<h2>Qt类声明中Q_OBJECT的作用</h2>
+
+<p>一开始在类声明时，我没有加入<code>Q_OBJECT</code>这一句代码，结果信号和槽函数的连接总是不成功，无法实现单坐标缩放。</p>
+
+<p>经过对比自动生成的类，我发现每一个类声明都有<code>Q_OBJECT</code>，因此百度了一下。原来只有加入<code>Q_OBJECT</code>之后，才能正常使用信号和槽机制，囧TT……</p>
+
+<h2>加入Q_OBJECT后报错的解决</h2>
+
+<p>在类声明中加入<code>Q_OBJECT</code>后，程序构建报错：</p>
+
+<pre><code class="language-cpp">undefined reference to `vtable for QCustomPlotPlus'
+</code></pre>
+
+<p>没有办法，只好再百度，查到了这篇博文：<a href="http://blog.csdn.net/chenlong12580/article/details/7431104">Qt 出现“undefined reference to `vtable for”原因总结&rdquo;</a>。</p>
+
+<p>在这篇文章里找到了解决方法：</p>
+
+<blockquote>
+<p>问题:某一个类中如果加入Q_OBJECT后, 则link时提示:undefined reference to vtable for &ldquo;xxx::xxx&rdquo;.删掉它则没有任何问题.</p>
+
+<p>解决:尝试(1):把所有的obj文件和uic文件删除,重新编译.仍然失败.去trolltech的 mail lists找到原因: 因为qmake生成Makefile的时候,这个类的头文件中并没有Q_OBJECT,所以在相应的Makefile里面并没有用moc xxx.h命令,最终导致链接失败.重新运行qmake,问题解决.在查找解决方法的时候,附带发现一点:</p>
+
+<p>qmake 不会处理.cpp文件里的Q_OBJECT,所以,如果在.cpp文件中有它的话,也会产生undefined reference to vtable for &ldquo;xxx::xxx&rdquo;. 这时,需要先用moc xxxx.cpp生成相应的moc文件,再包含到.cpp里面去,才能解决这个问题.</p>
+</blockquote>
+
+<p>按照博文说法，我重新运行了<strong><em>qmake</em></strong>，成功构建，功能正确！</p>
+
+<p>具体<strong><em>qmake</em></strong>的作用是什么我还不太懂，有待后面继续学习！</p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/icon.png);"></div>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    <div class="intro">人丑就要多读书</div>
+                </section>
+                <section class="recommend">
+                    
+                    
+                    <section class="nav next">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/coding-dairy-20170616.html">Qt中qDebug()函数的使用</a>
+                    </section>
+                    
+                </section>
+                
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//username.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        夜凉如水 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>
