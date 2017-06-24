@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-06-22T11:14:46+08:00</updated>
+  <updated>2017-06-24T17:45:39+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>Qt中Combo Box与Plain Text Edit的使用</title>
+    <updated>2017-06-23T11:13:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-06-23:/coding-dairy-20170623.html</id>
+    <content type="html">&lt;p&gt;编程记录:Qt中Combo Box的使用；Plain Text Edit的使用。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170623.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>Qt类声明中Q_OBJECT的作用与报错解决</title>
     <updated>2017-06-22T11:13:00+08:00</updated>
@@ -93,16 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-05-12:/qcustomplot1-intereaction.html</id>
     <content type="html">&lt;p&gt;QCustomplot图形交互接口学习。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/qcustomplot1-intereaction.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>个人博客建立</title>
-    <updated>2017-05-12T10:40:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-05-12:/blog-created.html</id>
-    <content type="html">&lt;p&gt;一只喜欢coding，但资质太差的狗，这次终于有窝了。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/blog-created.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>
