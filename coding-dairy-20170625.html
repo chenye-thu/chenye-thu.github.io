@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夜凉如水">
+<meta name="twitter:description" content="人丑就要多读书">
+<meta name="twitter:image:src" content="http://chenye-thu.github.io/images/avatar.png">
+
+<meta property="og:url" content="http://chenye-thu.github.io">
+<meta property="og:title" content="夜凉如水">
+<meta property="og:description" content="人丑就要多读书">
+<meta property="og:site_name" content="夜凉如水">
+<meta property="og:image" content="http://chenye-thu.github.io/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="夜凉如水">
+<meta itemprop="description" content="人丑就要多读书">
+<meta itemprop="image" content="http://chenye-thu.github.io/images/avatar.png">
+
+<link rel="canonical" href="http://chenye-thu.github.io">
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-itouch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/bundle/index.css">
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="编程,Qt,">
+        <meta name="description" content="Qt中Tree Widget的使用">
+        <meta name="author" content="夜凉如水">
+        <title>Qt中Tree Widget的使用</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap">
+  <a class="index" href="/">
+    <img class="logo" src="/images/avatar.png" />
+    夜凉如水
+  </a>
+  <ul class="menu">
+      <li class="menu-item"><a href="/archive.html">归档</a></li>
+      <li class="menu-item"><a href="/tag.html">标签</a></li>
+      <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+  </ul>
+</header>
+
+            <article class="main article">
+                <h1 class="title">Qt中Tree Widget的使用</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/icon.png);"></span>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    
+                    <span class="date" data-time="1498371420"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a><a class="tag" href="/tag/Qt/index.html">Qt</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>2017-06-25 周日 晴 北京 清华</p>
+</blockquote>
+
+<h2>Qt中Tree Widget的使用</h2>
+
+<p><strong>Tree Widget</strong>即<code>QTreeWidget</code>类，可以实现树状的分层列表，非常有用。为了实现帮助文档的不同章节目录功能，采用了这一控件。目录只有两级，因此实现较为简单。</p>
+
+<h3>利用<code>itemClicked</code>信号和父节点parent判断点击项</h3>
+
+<p>想要确定<strong>Tree Widget</strong>中第几项被点击或选中，但是查阅文档后，并未找到<strong>Tree Widget</strong>带有行参数的信号。这就不好做了，看来只能利用每一项的文本内容了。</p>
+
+<p>参考这篇博客的内容：<a href="http://www.cnblogs.com/Romi/archive/2012/04/16/2452709.html">Qt QTreeWidget 树形结构实现</a>。</p>
+
+<p>利用<code>itemClicked(QTreeWidgetItem *item, int column)</code>信号可以得到被点击的项<code>item</code>，再找到<code>item</code>的父节点<code>parent</code>，通过<code>parent-&gt;indexOfChild(item)</code>即可得到<code>item</code>在<code>parent</code>下的序号。</p>
+
+<pre><code class="language-cpp">void MainWindow::on_xxx_itemClicked(QTreeWidgetItem *item, int column)
+{
+    QTreeWidgetItem *parent = item-&gt;parent();
+    if(NULL==parent) //注意：最顶端项是没有父节点的，双击这些项时注意(陷阱)
+        return;
+    int col = parent-&gt;indexOfChild(item); //item在父项中的节点行号(从0开始)
+
+    if(0==col) //Band1
+    {
+        //执行对应操作
+    }
+    if(1==col) //Band2
+    {
+        //执行对应操作
+    }
+}
+</code></pre>
+
+<p>利用<code>parent-&gt;text(0)</code>文本的不同则可以区分第一级目录。</p>
+
+<h3>让<strong>Tree Widget</strong>保持展开</h3>
+
+<p>让目录一开始为展开状态，在使用时比较方便。查阅这篇博文：<a href="http://blog.csdn.net/can3981132/article/details/52273800">Qt如何使QTreeWidget始终保持展开？</a>。</p>
+
+<p>了解到<code>QTreeWidget</code>有两个接口可以用：<code>void setItemsExpandable(bool enable)</code>和<code>void expandAll()</code>。可以用下面两句代码使<strong>Tree Widget</strong>全部展开，并且不能收起。</p>
+
+<pre><code class="language-cpp">ui-&gt;treeWidget-&gt;setItemsExpandable(false);
+ui-&gt;treeWidget-&gt;expandAll();
+</code></pre>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/icon.png);"></div>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    <div class="intro">人丑就要多读书</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        <div class="head">上篇文章</div>
+                        <a class="link" href="/coding-dairy-20170626.html">Qt中List Widget的使用</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/coding-dairy-20170624.html">Qt中定时器的使用</a>
+                    </section>
+                    
+                </section>
+                
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//username.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        夜凉如水 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>
