@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夜凉如水">
+<meta name="twitter:description" content="人丑就要多读书">
+<meta name="twitter:image:src" content="http://chenye-thu.github.io/images/avatar.png">
+
+<meta property="og:url" content="http://chenye-thu.github.io">
+<meta property="og:title" content="夜凉如水">
+<meta property="og:description" content="人丑就要多读书">
+<meta property="og:site_name" content="夜凉如水">
+<meta property="og:image" content="http://chenye-thu.github.io/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="夜凉如水">
+<meta itemprop="description" content="人丑就要多读书">
+<meta itemprop="image" content="http://chenye-thu.github.io/images/avatar.png">
+
+<link rel="canonical" href="http://chenye-thu.github.io">
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-itouch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/bundle/index.css">
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="编程,Qt,作图,QCustomPlot,">
+        <meta name="description" content="QCustomPlot获取被选中的数据点的位置和值">
+        <meta name="author" content="夜凉如水">
+        <title>QCustomPlot获取被选中的数据点的位置和值</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap">
+  <a class="index" href="/">
+    <img class="logo" src="/images/avatar.png" />
+    夜凉如水
+  </a>
+  <ul class="menu">
+      <li class="menu-item"><a href="/archive.html">归档</a></li>
+      <li class="menu-item"><a href="/tag.html">标签</a></li>
+      <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+  </ul>
+</header>
+
+            <article class="main article">
+                <h1 class="title">QCustomPlot获取被选中的数据点的位置和值</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/icon.png);"></span>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    
+                    <span class="date" data-time="1499850000"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a><a class="tag" href="/tag/Qt/index.html">Qt</a><a class="tag" href="/tag/%e4%bd%9c%e5%9b%be/index.html">作图</a><a class="tag" href="/tag/QCustomPlot/index.html">QCustomPlot</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>2017-07-12 周三 天气忘了&hellip; 北京 院里</p>
+</blockquote>
+
+<h2>QCustomPlot获取被选中的数据点的位置和值</h2>
+
+<p>利用<code>qcustomplot-&gt;graph()-&gt;selection()</code>可以得到一个<code>QCPDataSelection</code>对象，利用<code>QCPDataSelection::dataRange()</code>可以得到选中数据的范围。因为我每次只选择一个数据，所以利用其<code>begin()</code>函数即可得到选中数据的位置。再利用位置得到取值即可。代码如下：</p>
+
+<pre><code class="language-cpp">QCPDataSelection selection = qcustomplot-&gt;graph()-&gt;selection();
+int selectedDataIndex = selection.dataRange().begin();
+double dataValue = qcustomplot-&gt;plottable()-&gt;interface1D()-&gt;dataMainValue(selectedDataIndex);
+</code></pre>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/icon.png);"></div>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    <div class="intro">人丑就要多读书</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        <div class="head">上篇文章</div>
+                        <a class="link" href="/coding-dairy-20170714.html">Qt中等待一段时间的实现</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/coding-dairy-20170711.html">QCustomPlot实现坐标缩放的控制</a>
+                    </section>
+                    
+                </section>
+                
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//username.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        夜凉如水 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>

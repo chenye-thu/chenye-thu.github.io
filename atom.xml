@@ -1,12 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-07-10T08:23:18+08:00</updated>
+  <updated>2017-07-27T10:39:47+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>QCustomPlot通过代码设置数据点的选择</title>
+    <updated>2017-07-27T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-07-27:/coding-dairy-20170727.html</id>
+    <content type="html">&lt;p&gt;编程记录：QCustomPlot通过代码设置数据点的选择。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170727.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Qt添加快捷键的方法</title>
+    <updated>2017-07-26T12:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-07-26:/coding-dairy-20170726.html</id>
+    <content type="html">&lt;p&gt;编程记录：使用用Qt的&lt;code&gt;QShortcut&lt;/code&gt;类和&lt;code&gt;QKeySequence&lt;/code&gt;类添加快捷键。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170726.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>QCustomPlot通过代码实现坐标的放缩和移动</title>
+    <updated>2017-07-24T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-07-24:/coding-dairy-20170724.html</id>
+    <content type="html">&lt;p&gt;编程记录：QCustomPlot通过代码实现坐标的放缩和移动。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170724.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Qt中界面对象的show和exec</title>
+    <updated>2017-07-17T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-07-17:/coding-dairy-20170717.html</id>
+    <content type="html">&lt;p&gt;编程记录：Qt中界面对象的show和exec；怎样让界面保持在最上层（模态对话框，modal）等问题。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170717.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Qt中等待一段时间的实现</title>
+    <updated>2017-07-14T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-07-14:/coding-dairy-20170714.html</id>
+    <content type="html">&lt;p&gt;编程记录：Qt中等待一段时间的实现。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170714.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>QCustomPlot获取被选中的数据点的位置和值</title>
+    <updated>2017-07-12T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-07-12:/coding-dairy-20170712.html</id>
+    <content type="html">&lt;p&gt;编程记录：QCustomPlot获取被选中的数据点的位置和值。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170712.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>QCustomPlot实现坐标缩放的控制</title>
+    <updated>2017-07-11T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-07-11:/coding-dairy-20170711.html</id>
+    <content type="html">&lt;p&gt;编程记录：QCustomplot实现坐标缩放的控制：y坐标最小值保持为0；坐标缩小范围的控制。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170711.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Qt打开文件类型</title>
+    <updated>2017-07-10T17:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-07-10:/coding-dairy-20170710.html</id>
+    <content type="html">&lt;p&gt;编程记录：Qt打开文件类型。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/coding-dairy-20170710.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>Qt中右键单击后弹出菜单功能</title>
     <updated>2017-07-07T11:13:00+08:00</updated>
@@ -23,86 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-07-06:/coding-dairy-20170706.html</id>
     <content type="html">&lt;p&gt;Qt中虚函数的使用；Qt中添加自己的信号。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/coding-dairy-20170706.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中时间的获取</title>
-    <updated>2017-07-05T11:13:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-05:/coding-dairy-20170705.html</id>
-    <content type="html">&lt;p&gt;编程记录:Qt中时间的获取：&lt;code&gt;QTime&lt;/code&gt;和&lt;code&gt;QDateTime&lt;/code&gt;类。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170705.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中Progress Bar控件的使用</title>
-    <updated>2017-07-02T21:00:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-02:/coding-dairy-20170702-2.html</id>
-    <content type="html">&lt;p&gt;编程记录:Qt中Progress Bar控件的使用。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170702-2.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中图像的显示</title>
-    <updated>2017-07-02T11:13:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-02:/coding-dairy-20170702.html</id>
-    <content type="html">&lt;p&gt;编程记录:Qt中图像的显示。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170702.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中List Widget的使用</title>
-    <updated>2017-06-26T11:13:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-06-26:/coding-dairy-20170626.html</id>
-    <content type="html">&lt;p&gt;编程记录:Qt中List Widget的使用。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170626.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中Tree Widget的使用</title>
-    <updated>2017-06-25T14:17:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-06-25:/coding-dairy-20170625.html</id>
-    <content type="html">&lt;p&gt;编程记录:Qt中Tree Widget的使用。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170625.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中定时器的使用</title>
-    <updated>2017-06-24T17:50:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-06-24:/coding-dairy-20170624.html</id>
-    <content type="html">&lt;p&gt;编程记录:Qt中定时器的使用。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170624.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中Combo Box与Plain Text Edit的使用</title>
-    <updated>2017-06-23T11:13:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-06-23:/coding-dairy-20170623.html</id>
-    <content type="html">&lt;p&gt;编程记录:Qt中Combo Box的使用；Plain Text Edit的使用。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170623.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt类声明中Q_OBJECT的作用与报错解决</title>
-    <updated>2017-06-22T11:13:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-06-22:/coding-dairy-20170622.html</id>
-    <content type="html">&lt;p&gt;编程记录:新建作图类继承自QCUstomPlot类，自带单坐标缩放功能；Qt类声明中Q_OBJECT的作用；加入Q_OBJECT后报错的解决。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170622.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>

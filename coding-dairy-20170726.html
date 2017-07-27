@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夜凉如水">
+<meta name="twitter:description" content="人丑就要多读书">
+<meta name="twitter:image:src" content="http://chenye-thu.github.io/images/avatar.png">
+
+<meta property="og:url" content="http://chenye-thu.github.io">
+<meta property="og:title" content="夜凉如水">
+<meta property="og:description" content="人丑就要多读书">
+<meta property="og:site_name" content="夜凉如水">
+<meta property="og:image" content="http://chenye-thu.github.io/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="夜凉如水">
+<meta itemprop="description" content="人丑就要多读书">
+<meta itemprop="image" content="http://chenye-thu.github.io/images/avatar.png">
+
+<link rel="canonical" href="http://chenye-thu.github.io">
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-itouch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/bundle/index.css">
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="编程,Qt,">
+        <meta name="description" content="Qt添加快捷键的方法">
+        <meta name="author" content="夜凉如水">
+        <title>Qt添加快捷键的方法</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap">
+  <a class="index" href="/">
+    <img class="logo" src="/images/avatar.png" />
+    夜凉如水
+  </a>
+  <ul class="menu">
+      <li class="menu-item"><a href="/archive.html">归档</a></li>
+      <li class="menu-item"><a href="/tag.html">标签</a></li>
+      <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+  </ul>
+</header>
+
+            <article class="main article">
+                <h1 class="title">Qt添加快捷键的方法</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/icon.png);"></span>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    
+                    <span class="date" data-time="1501041600"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a><a class="tag" href="/tag/Qt/index.html">Qt</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>2017-07-26 周三 中雨转阴 北京 院里</p>
+</blockquote>
+
+<h2>Qt添加快捷键的方法</h2>
+
+<p>添加快捷键可以方便软件的使用。在Qt中，利用<code>QShortcut</code>类和<code>QKeySequence</code>类可以很容易地添加快捷键。</p>
+
+<h3>1.QKeySequence类的使用</h3>
+
+<p><code>QKeySequence</code>类是顾名思义，即键盘的输入流。其有三种简单用法如下，示例中这三种用法都得到了打印对应的“Ctrl+P”的快捷键。其中，用法1和用法3使用了Qt自带的枚举类型，具体可查阅Qt文档；而方法2是以字符串形式直接写按键名。经实际使用，还是方法1和方法3有文档可查，好用一些。</p>
+
+<pre><code class="language-cpp">QKeySequence(QKeySequence::Print);//用法1
+QKeySequence(tr(&quot;Ctrl+P&quot;));//用法2
+QKeySequence(Qt::CTRL + Qt::Key_P);//用法3
+</code></pre>
+
+<h3>2.QShortcut类的使用</h3>
+
+<p><code>QShortcut</code>类是注册快捷键的类，用法也非常简单。</p>
+
+<p>首先新建一个快捷键对象。例如，添加<code>ctrl+left</code>的快捷键如下所示：</p>
+
+<pre><code class="language-cpp">QShortcut *shortcutCtrlLeft = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Left), this);
+</code></pre>
+
+<p>然后，就是我们熟悉的Qt的信号与槽机制了。每次快捷键触发，都会发射信号<code>activated()</code>，利用这个信号，连接快捷键到相应的槽函数即可：</p>
+
+<pre><code class="language-cpp">connect(shortcutCtrlLeft, SIGNAL(activated()), this, SLOT(on_CtrlLeft_activated()));
+</code></pre>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/icon.png);"></div>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    <div class="intro">人丑就要多读书</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        <div class="head">上篇文章</div>
+                        <a class="link" href="/coding-dairy-20170727.html">QCustomPlot通过代码设置数据点的选择</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/coding-dairy-20170724.html">QCustomPlot通过代码实现坐标的放缩和移动</a>
+                    </section>
+                    
+                </section>
+                
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//username.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        夜凉如水 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>
