@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-07-27T10:39:47+08:00</updated>
+  <updated>2017-10-23T19:58:22+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>离子在物质中的能损和射程计算软件——SRIM的安装</title>
+    <updated>2017-10-23T19:55:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-10-23:/article20171023-srim-install.html</id>
+    <content type="html">&lt;p&gt;离子在物质中的能损和射程计算软件——SRIM（The Stopping and Range of Ions in Matter）的安装。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171023-srim-install.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>QCustomPlot通过代码设置数据点的选择</title>
     <updated>2017-07-27T17:00:00+08:00</updated>
@@ -93,16 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-07-07:/coding-dairy-20170707.html</id>
     <content type="html">&lt;p&gt;编程记录:Qt中右键单击后弹出菜单功能，使用&lt;code&gt;customContextMenuRequested(QPoint)&lt;/code&gt;信号和&lt;code&gt;QMenu&lt;/code&gt;类。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/coding-dairy-20170707.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中虚函数的使用和添加自己的信号</title>
-    <updated>2017-07-06T11:00:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-06:/coding-dairy-20170706.html</id>
-    <content type="html">&lt;p&gt;Qt中虚函数的使用；Qt中添加自己的信号。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170706.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>
