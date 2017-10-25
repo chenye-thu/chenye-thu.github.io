@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-10-23T19:58:22+08:00</updated>
+  <updated>2017-10-25T13:33:50+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>诗一首——河流</title>
+    <updated>2017-10-25T13:25:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-10-25:/article20171025-poem-river.html</id>
+    <content type="html">&lt;p&gt;诗一首——河流&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171025-poem-river.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>诗一首——我的河流</title>
+    <updated>2017-10-25T13:10:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-10-25:/article20171025-poem-my-river.html</id>
+    <content type="html">&lt;p&gt;诗一首——我的河流&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171025-poem-my-river.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>离子在物质中的能损和射程计算软件——SRIM的安装</title>
     <updated>2017-10-23T19:55:00+08:00</updated>
@@ -83,26 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-07-11:/coding-dairy-20170711.html</id>
     <content type="html">&lt;p&gt;编程记录：QCustomplot实现坐标缩放的控制：y坐标最小值保持为0；坐标缩小范围的控制。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/coding-dairy-20170711.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt打开文件类型</title>
-    <updated>2017-07-10T17:00:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-10:/coding-dairy-20170710.html</id>
-    <content type="html">&lt;p&gt;编程记录：Qt打开文件类型。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170710.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中右键单击后弹出菜单功能</title>
-    <updated>2017-07-07T11:13:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-07:/coding-dairy-20170707.html</id>
-    <content type="html">&lt;p&gt;编程记录:Qt中右键单击后弹出菜单功能，使用&lt;code&gt;customContextMenuRequested(QPoint)&lt;/code&gt;信号和&lt;code&gt;QMenu&lt;/code&gt;类。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170707.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>
