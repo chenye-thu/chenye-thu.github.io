@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-10-29T13:40:00+08:00</updated>
+  <updated>2017-10-29T14:42:51+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
@@ -13,6 +13,16 @@
     <id>tag:chenye-thu.github.io,2017-10-29:/article20171029-oral-english-informal-presentation-01.html</id>
     <content type="html">&lt;p&gt;Creating your personal website for free. Draft of Oral English Informal Presentation 01.&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/article20171029-oral-english-informal-presentation-01.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>体验coding.net动态Pages功能</title>
+    <updated>2017-10-28T21:37:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-10-28:/article20171028-try-coding-dynamic-pages.html</id>
+    <content type="html">&lt;p&gt;体验coding.net动态Pages功能：coding.net配置公钥；使用Git管理仓库；博客程序Typecho在动态Coding Pages上的安装。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171028-try-coding-dynamic-pages.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>
@@ -93,16 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-07-17:/coding-dairy-20170717.html</id>
     <content type="html">&lt;p&gt;编程记录：Qt中界面对象的show和exec；怎样让界面保持在最上层（模态对话框，modal）等问题。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/coding-dairy-20170717.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt中等待一段时间的实现</title>
-    <updated>2017-07-14T17:00:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-14:/coding-dairy-20170714.html</id>
-    <content type="html">&lt;p&gt;编程记录：Qt中等待一段时间的实现。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170714.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>
