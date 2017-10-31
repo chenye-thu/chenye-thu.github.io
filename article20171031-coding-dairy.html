@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夜凉如水">
+<meta name="twitter:description" content="人丑就要多读书">
+<meta name="twitter:image:src" content="http://chenye-thu.github.io/images/avatar.png">
+
+<meta property="og:url" content="http://chenye-thu.github.io">
+<meta property="og:title" content="夜凉如水">
+<meta property="og:description" content="人丑就要多读书">
+<meta property="og:site_name" content="夜凉如水">
+<meta property="og:image" content="http://chenye-thu.github.io/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="夜凉如水">
+<meta itemprop="description" content="人丑就要多读书">
+<meta itemprop="image" content="http://chenye-thu.github.io/images/avatar.png">
+
+<link rel="canonical" href="http://chenye-thu.github.io">
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-itouch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/bundle/index.css">
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="编程,MATLAB,C&#43;&#43;,DLL,">
+        <meta name="description" content="MATLAB调用C&#43;&#43;动态链接库（DLL）">
+        <meta name="author" content="夜凉如水">
+        <title>MATLAB调用C&#43;&#43;动态链接库（DLL）</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap">
+  <a class="index" href="/">
+    <img class="logo" src="/images/avatar.png" />
+    夜凉如水
+  </a>
+  <ul class="menu">
+      <li class="menu-item"><a href="/archive.html">归档</a></li>
+      <li class="menu-item"><a href="/tag.html">标签</a></li>
+      <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+  </ul>
+</header>
+
+            <article class="main article">
+                <h1 class="title">MATLAB调用C&#43;&#43;动态链接库（DLL）</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/icon.png);"></span>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    
+                    <span class="date" data-time="1509454800"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a><a class="tag" href="/tag/MATLAB/index.html">MATLAB</a><a class="tag" href="/tag/C&#43;&#43;/index.html">C&#43;&#43;</a><a class="tag" href="/tag/DLL/index.html">DLL</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>2017-10-31 周二 晴 北京 清华大学</p>
+</blockquote>
+
+<h2>MATLAB调用C++动态链接库</h2>
+
+<h3>方法1：loadlibrary</h3>
+
+<p>参考这篇文章：
+<a href="http://www.jianshu.com/p/e910ca82b542">Matlab调用C++ dll实例</a></p>
+
+<p>首先生成DLL文件，这里使用的是VS2010。<strong>特别要注意的是，如果是64bit平台，需要把编译平台改为64bit。</strong>然后把生成的DLL文件和.h文件复制到MATLAB工作目录。</p>
+
+<pre><code>%MATLAB代码：
+%加载matlabDllTest.DLL
+loadlibrary('matlabDllTest','matlabDllTest.h');
+%full选项会列出导出函数的详细输入和输出参数
+libfunctions matlabDllTest -full
+%调用函数，add是函数名，后面是函数的参数
+calllib('matlabDllTest', 'add', 1.3, 4.6)
+%停止加载DLL
+unloadlibrary matlabDllTest
+</code></pre>
+
+<h3>方法2：mex</h3>
+
+<p>参考这篇文章：
+<a href="https://wenku.baidu.com/view/3427724fe45c3b3567ec8b4b.html">MATLAB调用C++动态库的方法</a></p>
+
+<p>方法1比较简单，如果想得到矩阵之类的结果怎样做？貌似使用mex的方法是可以的。</p>
+
+<p>把DLL文件、.h文件和.lib文件都复制到MATLAB工作目录，然后在此目录下新建一个<strong>.cpp</strong>文件，内容如下。重点是要包含<strong><em>mex.h</em></strong>，并且必须按照格式添加函数<code>mexFunction</code>。对于<code>mexFunction</code>函数，其四个参数意义为：nlhs是输出参数个数，plhs是输出参数指针，nrhs是输入参数个数，mxArray是输入参数指针。其用法可以参考下面的代码。在下面的代码中，输入参数为2个，输出的结果是两个1*2的矩阵（向量）。</p>
+
+<pre><code class="language-cpp">#include &quot;mex.h&quot; 
+#include &quot;matlabDllTest.h&quot; 
+#pragma comment(lib,&quot;matlabDllTest.lib&quot;)
+void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+{
+    if( nrhs != 2)  //判断输入参数的个数
+    {
+        mexErrMsgTxt(&quot;输入参数个数不对!&quot;);
+    }
+    //得到传入的第一个参数，并转换了double类型       
+    double p1 = *((double*)mxGetPr(prhs[0])); 
+    //得到传入的第二个参数，并转换了double类型       
+    double p2 = *((double*)mxGetPr(prhs[1]));       
+    //创建结果为两个1*2的实时double类型的矩阵 
+    plhs[0] = mxCreateDoubleMatrix(1, 2, mxREAL);
+    plhs[1] = mxCreateDoubleMatrix(1, 2, mxREAL);
+    //得到输出的参数的指针
+    double *output = (double*)mxGetPr(plhs[0]); 
+    double *output1 = (double*)mxGetPr(plhs[1]); 
+
+    //调用matlabDllTest.dll定义的函数实现功能，并将返回值给输出参数      
+    output[1] = add(p1, p2);
+    output1[0] = add(p1, p2);
+    output1[1] = p1 - p2;
+}
+</code></pre>
+
+<p>然后，在MATLAB中，输入以下命令，注意<code>filename</code>是cpp文件名。</p>
+
+<pre><code>mex filename.cpp
+</code></pre>
+
+<p>这样你就会在目录里生成一个<strong><em>filename.mexw32</em></strong>或者<strong><em>filename.mexw64</em></strong>文件（取决于32位还是64位），这就是MEX文件。在此目录下，命令<code>filename</code>就会运行这当中的函数。</p>
+
+<p>运行如下命令<code>filename(1,2)</code>会将第一个结果返回，如果需要看两个结果，可以执行<code>[a b] = filename(1,2)</code>，这样两个结果就分别赋值给<code>a</code>和<code>b</code>了。</p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/icon.png);"></div>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    <div class="intro">人丑就要多读书</div>
+                </section>
+                <section class="recommend">
+                    
+                    
+                    <section class="nav next">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/article20171029-oral-english-informal-presentation-01.html">Creating Your Personal Website for Free</a>
+                    </section>
+                    
+                </section>
+                
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//username.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        夜凉如水 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>
