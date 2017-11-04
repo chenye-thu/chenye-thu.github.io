@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-10-31T21:30:58+08:00</updated>
+  <updated>2017-11-04T14:16:27+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>利用cmd命令建立Qt（C++）程序与MATLAB数据接口</title>
+    <updated>2017-11-04T14:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-11-04:/article20171104-coding-dairy-matlab-qt-interface.html</id>
+    <content type="html">&lt;p&gt;编程记录：利用cmd命令建立Qt（C++）程序与MATLAB数据接口。MATLAB通过执行命令行（cmd）命令，运行Qt（C++）程序，并获得Qt程序返回的数据。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171104-coding-dairy-matlab-qt-interface.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>MATLAB调用C++动态链接库（DLL）</title>
     <updated>2017-10-31T21:00:00+08:00</updated>
@@ -93,16 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-07-26:/coding-dairy-20170726.html</id>
     <content type="html">&lt;p&gt;编程记录：使用用Qt的&lt;code&gt;QShortcut&lt;/code&gt;类和&lt;code&gt;QKeySequence&lt;/code&gt;类添加快捷键。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/coding-dairy-20170726.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>QCustomPlot通过代码实现坐标的放缩和移动</title>
-    <updated>2017-07-24T17:00:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-24:/coding-dairy-20170724.html</id>
-    <content type="html">&lt;p&gt;编程记录：QCustomPlot通过代码实现坐标的放缩和移动。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170724.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>

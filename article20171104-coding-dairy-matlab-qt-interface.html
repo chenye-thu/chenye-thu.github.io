@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夜凉如水">
+<meta name="twitter:description" content="人丑就要多读书">
+<meta name="twitter:image:src" content="http://chenye-thu.github.io/images/avatar.png">
+
+<meta property="og:url" content="http://chenye-thu.github.io">
+<meta property="og:title" content="夜凉如水">
+<meta property="og:description" content="人丑就要多读书">
+<meta property="og:site_name" content="夜凉如水">
+<meta property="og:image" content="http://chenye-thu.github.io/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="夜凉如水">
+<meta itemprop="description" content="人丑就要多读书">
+<meta itemprop="image" content="http://chenye-thu.github.io/images/avatar.png">
+
+<link rel="canonical" href="http://chenye-thu.github.io">
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-itouch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/bundle/index.css">
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="编程,MATLAB,Qt,">
+        <meta name="description" content="利用cmd命令建立Qt（C&#43;&#43;）程序与MATLAB数据接口">
+        <meta name="author" content="夜凉如水">
+        <title>利用cmd命令建立Qt（C&#43;&#43;）程序与MATLAB数据接口</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap">
+  <a class="index" href="/">
+    <img class="logo" src="/images/avatar.png" />
+    夜凉如水
+  </a>
+  <ul class="menu">
+      <li class="menu-item"><a href="/archive.html">归档</a></li>
+      <li class="menu-item"><a href="/tag.html">标签</a></li>
+      <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+  </ul>
+</header>
+
+            <article class="main article">
+                <h1 class="title">利用cmd命令建立Qt（C&#43;&#43;）程序与MATLAB数据接口</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/icon.png);"></span>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    
+                    <span class="date" data-time="1509775200"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a><a class="tag" href="/tag/MATLAB/index.html">MATLAB</a><a class="tag" href="/tag/Qt/index.html">Qt</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>2017-11-04 周六 晴 北京 清华大学</p>
+</blockquote>
+
+<h2>利用cmd命令建立Qt（C++）程序与MATLAB数据接口</h2>
+
+<h3>1 为什么要用cmd命令？</h3>
+
+<p>因为简单，真的……因为实在是整不出其他办法来TT。</p>
+
+<p>本来想通过Qt生成动态链接库（DLL），在MATLAB中调用，但是这个方法最多支持一些简单的程序，稍微复杂一点，MATLAB就报错。我的Qt程序算是略复杂了，不仅有很多类，而且还要与硬件通信，所以这个方法行不通。</p>
+
+<p>所以就想到MATLAB是不是可以执行系统命令，如果可以，是不是可以通过cmd执行我的Qt程序，并获取返回的数据呢？因此，查到这篇文章：<a href="http://blog.sina.com.cn/s/blog_59cf67260100l2c3.html">Matlab中使用系统命令</a>。其实很简单，只有一个<code>system</code>函数而已，使用方法如下。其中，<code>status</code>代表执行是否成功（成功0，失败非0），<code>results</code>为执行程序返回的结果。</p>
+
+<pre><code>%MATLAB代码：执行系统命令'command'
+[status, results]=system('command')；
+</code></pre>
+
+<p>要注意的是，<code>results</code>是命令行程序的返回结果。什么意思呢，我们知道，命令行程序是通过将信息“打印”（如<code>printf</code>、<code>cout</code>）到命令行界面来显示结果的。所以<code>results</code>其实就是程序运行后，命令行界面上打印出来的信息。说白了，<code>results</code>就是一个字符串而已。如下图所示，在命令行中执行<code>dir</code>，会将当前目录下的文件打印出来；而如果执行一个不存在或者未找到的命令，同样会有信息打印出来，而<code>results</code>中保存的正是这些信息。</p>
+
+<p><img src="data:image/gif;base64,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" data-src="./images/cmd01.jpg" alt="在cmd中执行命令" /></p>
+
+<p>因此，MATLAB通过<code>system</code>函数，运行Qt程序，得到了字符串<code>results</code>，这之后还要对字符串进行处理，才能获得最终想要的数据。那么这就要求在编写Qt程序时，要对输出结果建立一定的协议，保证MATLAB能够按照协议获取想要的数据。</p>
+
+<h3>2 Qt中编写命令行程序</h3>
+
+<h4>2.1 Qt中获取和解析cmd参数</h4>
+
+<p>Qt用的就是C++语言，编写cmd程序和纯C++是一样的。我们最开始学习C/C++的时候，编写的都是命令行程序，例如我们的<strong>helloworld</strong>程序，不就是在命令行界面打印出“Hello world！”吗？</p>
+
+<p>这里我们的cmd程序，比<strong>helloworld</strong>稍微复杂一点，是包含参数的程序。例如，我们在cmd中想要转换目录的话，需要用到<code>cd</code>命令，其用法是<code>cd [directory]</code>，这其中的<code>[directory]</code>就是程序的参数。</p>
+
+<p>其实我们应该知道，C++程序的<code>main()</code>函数有两个参数<code>argc</code>和<code>argv</code>，如下面所示。其中argc是参数个数，argv里则是程序的参数。那么通过这<code>argc</code>和<code>argv</code>两个参数就可以得到程序的参数，进而进行命令的解析。要注意的是<code>argv[0]</code>是程序本身的名字，从<code>argv[1]</code>开始才是程序的参数，例如命令<code>cd [directory]</code>，<code>argv[0]</code>是&rdquo;cd&rdquo;，<code>argv[1]</code>才是&rdquo;[directory]&ldquo;。因此，当<code>argc</code>大于1的时候，才说明程序是由参数的。</p>
+
+<pre><code class="language-cpp">int main(int argc, char *argv[])
+{
+    ...
+}
+</code></pre>
+
+<p>从<code>argv</code>中得到的参数，需要进行解析。我的需求是不同的参数对应程序不同的操作。假设我的程序名为“myProgram”，我希望在我输入<code>myProgram p1</code>和<code>myProgram p2</code>时执行不同操作。</p>
+
+<p>很简单，只需要把<code>argv[1]</code>转换成<code>QString</code>类型，然后可以直接使用<code>==</code>符号来判断，如下所示。</p>
+
+<pre><code class="language-cpp">if(argc &gt; 1)
+{
+    if(QString(argv[1]) == &quot;p1&quot;)
+        ...;
+    else if(QString(argv[1]) == &quot;p2&quot;)
+        ...;
+    ...
+}
+</code></pre>
+
+<h4>2.2 在Qt GUI程序中加入cmd模式</h4>
+
+<p>我的Qt程序之前是一个GUI（图形界面）程序，一般来说。在此基础之上，即使你在<code>main()</code>函数中加入了参数解析等cmd运行的操作，你也不会得到你想要的结果。这是因为Qt一般会默认GUI程序没有cmd操作。</p>
+
+<p>因此，我们需要在Qt项目的<strong><em>.pro</em></strong>文件中，加入一句：<code>CONFIG += console</code>。这样再生成的程序就可以在cmd中带参数运行了。</p>
+
+<h4>2.3 在Qt中调试cmd命令</h4>
+
+<p>那么问题又来了，有的时候，你可能想要对cmd命令的参数进行调试，然而在Qt Creator中只有一个调试按钮，默认是没有参数的。</p>
+
+<p>其实，运行的参数是可以设置的。参考这篇文章： <a href="http://blog.csdn.net/desert187/article/details/40781225">QtCreator调试传入运行参数</a>。在Qt Creator中，找到<strong>项目</strong>-&gt;<strong>运行设置</strong>-&gt;<strong>参数</strong>，在这里写上想要调试的参数即可。如下图所示</p>
+
+<p><img src="data:image/gif;base64,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" data-src="./images/qt-cmd-parameter01.jpg" alt="Qt中设置程序运行参数" /></p>
+
+<h4>2.4 cmd程序输出（打印）协议制定</h4>
+
+<p>协议制定的目的是为了让MATLAB方便地在输出结果中找到想要的内容。</p>
+
+<p>我参考了<strong><em>XML</em></strong>格式，将数据打印出来。例如，当运行<code>myProgram p1</code>时，我需要将0~9的整数打印出来，而这些数就是我想传给MATLAB的数据。我可以使用下面代码实现：</p>
+
+<pre><code class="language-cpp">printf(&quot;&lt;p1&gt;&quot;);
+for(int i = 0; i&lt;10; i++)
+    printf(&quot;%d &quot;, i);
+printf(&quot;&lt;/p1&gt;&quot;);
+</code></pre>
+
+<p>以上代码的输出结果如下所示，对于这样的结果，在MATLAB中，只要在<code>results</code>找到&rdquo;<p1>&ldquo;和&rdquo;</p1>&ldquo;的位置，就可以得到0~9的数据了。</p>
+
+<pre><code>&lt;p1&gt;0 1 2 3 4 5 6 7 8 9 &lt;/p1&gt;
+</code></pre>
+
+<p>当然，实际使用时，可能为了鲁棒性，还要加一些其他的输出信息。比如<strong>是否有数据输出</strong>、<strong>数据个数</strong>等等。就是说，协议制定要全面一些。</p>
+
+<h3>3 MATLAB对cmd输出（results）的解析</h3>
+
+<p>参考这篇文章：<a href="http://www.cnblogs.com/emanlee/archive/2012/09/13/2683912.html">matlab 字符串处理函数</a></p>
+
+<p>使用MATLAB执行cmd程序后，得到的结果保存在<code>results</code>中，<code>results</code>是字符串类型的向量。从<code>results</code>中解析数据，需要用到以下几个函数：</p>
+
+<pre><code>%MATLAB代码
+% 1. 从results中找到'&lt;p1&gt;'的位置k；如果有多个，k是向量
+k = strfind(results,'&lt;p1&gt;');
+% 2. 从results中取出数据部分（例如，从第a到第b个字符）
+p1str = results( a : b )；
+% 3. deblank可以把字符串后面的空格等去掉
+p1str = deblank( p1str );
+% 4. strsplit可以把字符串以空格等符号分开，返回cell类型
+p1Cell = strsplit(p1str, ' ');
+% 5. 将cell类型逐个转变为数字类型，最终得到1*10的向量p1
+p1 = zeros(1, 10);
+for id = 1:10
+    p1(id) = str2double( cell2mat( p1Cell(id) ) );
+end
+</code></pre>
+
+<p>利用上面几个函数，就可以很方便地把cmd返回结果中的数据提取出来了。</p>
+
+<p>就到这吧，这篇文章还挺长的……</p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/icon.png);"></div>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    <div class="intro">人丑就要多读书</div>
+                </section>
+                <section class="recommend">
+                    
+                    
+                    <section class="nav next">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/article20171031-coding-dairy.html">MATLAB调用C&#43;&#43;动态链接库（DLL）</a>
+                    </section>
+                    
+                </section>
+                
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//username.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        夜凉如水 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>
