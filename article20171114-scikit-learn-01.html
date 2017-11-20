@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夜凉如水">
+<meta name="twitter:description" content="人丑就要多读书">
+<meta name="twitter:image:src" content="http://chenye-thu.github.io/images/avatar.png">
+
+<meta property="og:url" content="http://chenye-thu.github.io">
+<meta property="og:title" content="夜凉如水">
+<meta property="og:description" content="人丑就要多读书">
+<meta property="og:site_name" content="夜凉如水">
+<meta property="og:image" content="http://chenye-thu.github.io/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="夜凉如水">
+<meta itemprop="description" content="人丑就要多读书">
+<meta itemprop="image" content="http://chenye-thu.github.io/images/avatar.png">
+
+<link rel="canonical" href="http://chenye-thu.github.io">
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-itouch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/bundle/index.css">
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="机器学习,Python,scikit-learn,编程,">
+        <meta name="description" content="基于Python的机器学习框架scikit-learn学习笔记01">
+        <meta name="author" content="夜凉如水">
+        <title>基于Python的机器学习框架scikit-learn学习笔记01</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap">
+  <a class="index" href="/">
+    <img class="logo" src="/images/avatar.png" />
+    夜凉如水
+  </a>
+  <ul class="menu">
+      <li class="menu-item"><a href="/archive.html">归档</a></li>
+      <li class="menu-item"><a href="/tag.html">标签</a></li>
+      <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+  </ul>
+</header>
+
+            <article class="main article">
+                <h1 class="title">基于Python的机器学习框架scikit-learn学习笔记01</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/icon.png);"></span>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    
+                    <span class="date" data-time="1511100000"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0/index.html">机器学习</a><a class="tag" href="/tag/Python/index.html">Python</a><a class="tag" href="/tag/scikit-learn/index.html">scikit-learn</a><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>2017-11-14 周二 晴 北京 清华大学 开始<br>
+2017-11-19 周日 阴 北京 清华大学 完成</p>
+</blockquote>
+
+<h2>1 scikit-learn是什么?</h2>
+
+<p>scikit-learn官网：<a href="http://scikit-learn.org/">http://scikit-learn.org/</a></p>
+
+<p>为了做机器学习课上的作业，不得不从小白开始学习一些新的东西TT。</p>
+
+<p>scikit-learn（简称sklearn）是一个基于Python语言的机器学习框架，这个东西好不好我也不太清楚。我也是看到助教和课上有同学说可以用这个来做作业，才决定了解下它的。</p>
+
+<p>作业是在12月1日截止。看上去好像时间还很多，其实这期间，我得学会scikit-learn（了解、安装、使用），学着熟悉Python，做作业，写报告……想到这些心就好累呀。更不用说还有其它课程的作业了TT。</p>
+
+<p>不过工欲善其事，必先利其器。学号一门工具还是很有必要的。希望自己在这两周里，加把劲，打开机器学习的大门。唉，其实，我只求这门课别挂TT。下面呢，就是边学习边记录，做一个学习笔记。</p>
+
+<h2>2 安装scikit-learn</h2>
+
+<p>我之前已经安装过Python 3.5，并且我发现，我已经有pip这个程序了（在：Python安装目录\Scripts里）。pip是一个Python包管理工具，用它可以很方便地安装scikit-learn。</p>
+
+<p>参考这篇文章，下载了NumPy、SciPy、Matplotlib（以及pytz、dateutil、pyparsing）和sklearn的.whl安装包：<a href="http://www.jianshu.com/p/21b758541825">目前最全的windows平台下：scikit-learn安装教程</a>。还参考了文章：<a href="http://blog.csdn.net/Apie_CZX/article/details/45643941">windows下python3.4的scikit-learn搭建</a></p>
+
+<p>使用pip install安装下载的whl安装包（注：我没有加“-U”）</p>
+
+<pre><code>pip install –U xxx.whl
+</code></pre>
+
+<p>但是报错：</p>
+
+<pre><code>xxx_amd64.whl is not a supported wheel on this platform. 
+</code></pre>
+
+<p>经过检查后我发现我的Python是32位的，晕……当时是怎么想的……</p>
+
+<p>重新下载了几个包的32位版本，安装顺利。</p>
+
+<p>为了测试是否安装成功，去sklearn官网（<a href="http://scikit-learn.org/stable/auto_examples/index.html">sklearn官网例子</a>）找了几个例子试了一下，运行成功！下图是一个决策树adaboost回归（拟合）的例子。</p>
+
+<p><img src="data:image/gif;base64,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" data-src="./images/scikit-learn-example01.png" alt="sklearn决策树adaboost回归例子运行结果" /></p>
+
+<p>搞定！看来今天还是挺顺利的！而且，用起来真的很简单啊，从网页上复制代码过来，直接运行，什么配置都不需要！</p>
+
+<h2>3 scikit-learn的使用</h2>
+
+<p>在运行了几个例子之后，我感觉scikit-learn的使用应该是比较简单的，而且我也大概看看看代码，多少还是能看懂的。后面可能要实现自己的功能的话，就要查文档或者百度谷歌了。</p>
+
+<p>sklearn官网文档中找到了关于集成的部分：<a href="http://scikit-learn.org/stable/modules/ensemble.html">1.11. Ensemble methods</a>。在这里面正好就有bagging和随机森林（random forest, RF），以及Adaboost。</p>
+
+<p>官网关于bagging集成的例子：<a href="http://scikit-learn.org/stable/auto_examples/ensemble/plot_bias_variance.html">Single estimator versus bagging: bias-variance decomposition</a>。这个例子讲的是bagging的回归模型 BaggingRegressor。当然，还可以找到bagging的分类器<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html">BaggingClassifier</a>。</p>
+
+<h3>3.1 BaggingClassifier</h3>
+
+<p>基于bagging的分类器<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html">BaggingClassifier</a>位于<code>sklearn.ensemble</code>。官方文档地址：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html</a></p>
+
+<p>BaggingClassifier定义：</p>
+
+<pre><code class="language-python">class sklearn.ensemble.BaggingClassifier(base_estimator=None, n_estimators=10, max_samples=1.0, max_features=1.0, bootstrap=True, bootstrap_features=False, oob_score=False, warm_start=False, n_jobs=1, random_state=None, verbose=0)
+</code></pre>
+
+<p>其比较重要的几个参数意义如下。其实默认的参数值应该就是我们需要的bagging，我们最多改改基学习器个数<code>n_estimators</code>。</p>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+<th>默认</th>
+<th>备注</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>base_estimator</td>
+<td>基学习器</td>
+<td>None，对应决策树</td>
+<td></td>
+</tr>
+
+<tr>
+<td>n_estimators</td>
+<td>基学习器个数</td>
+<td>10</td>
+<td>int型</td>
+</tr>
+
+<tr>
+<td>max_samples</td>
+<td>样本抽取个数或比例</td>
+<td>1.0</td>
+<td>整数对应个数，小数则对应比例</td>
+</tr>
+
+<tr>
+<td>max_features</td>
+<td>特征抽取个数或比例</td>
+<td>1.0</td>
+<td>整数对应个数，小数则对应比例</td>
+</tr>
+
+<tr>
+<td>bootstrap</td>
+<td>样本抽取是否放回</td>
+<td>True</td>
+<td>bool型</td>
+</tr>
+
+<tr>
+<td>bootstrap_features</td>
+<td>特征抽取是否放回</td>
+<td>false</td>
+<td>bool型</td>
+</tr>
+
+<tr>
+<td>oob_score</td>
+<td>是否用bag外样本估计误差</td>
+<td></td>
+<td>bool型</td>
+</tr>
+</tbody>
+</table>
+
+<p>使用下面的代码训练了一个BaggingClassifier，真的非常简单。声明分类器，<code>fit</code>用于训练，<code>predict</code>用于分类。关于加载样本数据相关的内容，在本文的后面。</p>
+
+<pre><code class="language-python">import numpy as np
+from sklearn.ensemble import BaggingClassifier
+
+# 加载样本数据
+dataset = np.loadtxt(&quot;krkopt.txt&quot;, delimiter=&quot;,&quot;)
+X = dataset[:,0:6]
+y = dataset[:,6]
+
+# 训练分类器
+bagging = BaggingClassifier()
+bagging.fit(X, y)
+
+# 测试：用训练好的分类器分类
+xt = [[ 3., 2., 5.,7., 8., 6.],
+      [ 3., 2., 5.,7., 8., 7.]]
+yt = bagging.predict(xt)
+print(yt)
+</code></pre>
+
+<p>另外，如果想要计算错误率的话，不用自己费事计算理论，直接用<code>Classifier.score(XTest, yTest)</code>就可以计算预测正确率。其中<code>XTest</code>是测试输入，<code>yTest</code>是与之对应的正确结果。</p>
+
+<h3>3.2 RandomForestClassifier</h3>
+
+<p>基于RF的分类器<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">RandomForestClassifier</a>位于<code>sklearn.ensemble</code>。官方文档地址：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a></p>
+
+<p>RandomForestClassifier定义：</p>
+
+<pre><code class="language-python">class sklearn.ensemble.RandomForestClassifier(n_estimators=10, criterion=’gini’, max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features=’auto’, max_leaf_nodes=None, min_impurity_decrease=0.0, min_impurity_split=None, bootstrap=True, oob_score=False, n_jobs=1, random_state=None, verbose=0, warm_start=False, class_weight=None)
+</code></pre>
+
+<p>其比较重要的几个参数意义如下。相比于BaggingClassifier，RandomForestClassifier没有<code>base_estimator</code>这一参数，因为RF的基学习机只能是决策树。RandomForestClassifier最重要的两个参数是基学习器个数<code>n_estimators</code>和特征抽取个数<code>max_features</code>。其他的参数，如<code>criterion</code>、<code>max_depth</code>等，都是决策树<a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html">DecisionTreeClassifier</a>的参数，在此不赘述。在对比bagging和RF时，只要这些都是默认的即可。</p>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+<th>默认</th>
+<th>备注</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>n_estimators</td>
+<td>基学习器个数</td>
+<td>10</td>
+<td>int型</td>
+</tr>
+
+<tr>
+<td>max_features</td>
+<td>特征抽取个数或比例</td>
+<td>“auto”</td>
+<td>整数对应个数，小数则对应比例; “auto”:sqrt(n_features); “sqrt”:sqrt(n_features)； “log2”：log2(n_features)； None：n_features.</td>
+</tr>
+
+<tr>
+<td>criterion</td>
+<td>生成决策树时使用的标准</td>
+<td>&ldquo;gini&rdquo;</td>
+<td>&ldquo;gini&rdquo;或&rdquo;entropy&rdquo;</td>
+</tr>
+
+<tr>
+<td>bootstrap</td>
+<td>样本抽取是否放回</td>
+<td>True</td>
+<td>bool型</td>
+</tr>
+
+<tr>
+<td>oob_score</td>
+<td>是否用bag外样本估计误差</td>
+<td></td>
+<td>bool型</td>
+</tr>
+</tbody>
+</table>
+
+<p>使用下面的代码训练了一个RandomForestClassifier，同样非常简单。声明分类器，<code>fit</code>用于训练，<code>predict</code>用于分类。</p>
+
+<pre><code class="language-python">import numpy as np
+from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+# 加载样本数据
+dataset = np.loadtxt(&quot;krkopt.txt&quot;, delimiter=&quot;,&quot;)
+X = dataset[:,0:6]
+y = dataset[:,6]
+
+# 训练RF分类器
+rf = RandomForestClassifier()
+rf.fit(X, y)
+
+# 测试：用训练好的分类器分类
+xt = X[0:2,:]
+yt_rf = rf.predict(xt)
+print(yt_rf)
+</code></pre>
+
+<h3>3.3 AdaBoostClassifier</h3>
+
+<p>基于AdaBoost的分类器<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html">AdaBoostClassifier</a>位于<code>sklearn.ensemble</code>。官方文档地址：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html</a></p>
+
+<p>AdaBoostClassifier定义：</p>
+
+<pre><code class="language-python">class sklearn.ensemble.AdaBoostClassifier(base_estimator=None, n_estimators=50, learning_rate=1.0, algorithm=’SAMME.R’, random_state=None)
+</code></pre>
+
+<p>其比较重要的几个参数意义如下。AdaBoostClassifier最重要的两个参数是基学习器<code>base_estimator</code>和基学习器个数<code>n_estimators</code>。其中<code>base_estimator</code>默认是<code>DecisionTreeClassifier</code>。</p>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+<th>默认</th>
+<th>备注</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>base_estimator</td>
+<td>基学习器</td>
+<td>决策树分类器</td>
+<td></td>
+</tr>
+
+<tr>
+<td>n_estimators</td>
+<td>基学习器个数</td>
+<td>50</td>
+<td>int型</td>
+</tr>
+
+<tr>
+<td>learning_rate</td>
+<td>学习率？不懂</td>
+<td>1</td>
+<td>float</td>
+</tr>
+
+<tr>
+<td>algorithm</td>
+<td>算法</td>
+<td>‘SAMME.R’</td>
+<td>{‘SAMME’, ‘SAMME.R’}</td>
+</tr>
+
+<tr>
+<td>random_state</td>
+<td>与随机数生成有关</td>
+<td>none</td>
+<td>int型</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>11.17日遇到问题</strong>：使用AdaBoostClassifier训练的分类器，不知道什么原因，正确率很低。是因为多分类?基分类器个数太少？还是因为我用的不对？搞不清楚。AdaBoostClassifier的基分类器要求应该为比较弱的分类器，那么是不是要对基分类器作一定设置？</p>
+
+<p><strong>11.18日解决问题</strong>：自己胡乱调，胡乱试了两天，发现需要设置AdaBoostClassifier的
+基分类器参数<code>DecisionTreeClassifier</code>，虽然默认就是<code>DecisionTreeClassifier</code>，但是如果不手动写上，分类的错误率非常低。调整<code>DecisionTreeClassifier</code>的深度<code>max_depth</code>有效果。</p>
+
+<p>使用下面的代码训练了一个AdaBoostClassifier，同样非常简单。声明分类器，<code>fit</code>用于训练，<code>predict</code>用于分类。</p>
+
+<pre><code class="language-python">import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import AdaBoostClassifier
+import time
+
+# 加载样本数据
+nClasses = 17
+nFeatures = 6
+dataset = np.loadtxt(&quot;krkopt0.txt&quot;, delimiter=&quot;,&quot;)
+X = dataset[:,0:6]
+y = dataset[:,6]
+nSamples = len(y)
+
+# 训练AdaBoost分类器
+maxDepth = 12
+clf_ada = AdaBoostClassifier(DecisionTreeClassifier(max_depth=maxDepth), n_estimators=100, random_state=0)
+begin = time.clock()
+clf_ada.fit(X, y)
+end = time.clock()
+print('\nElapsed time: %.8f seconds\n' % (end-begin) )
+
+# 测试：用训练好的分类器分类
+xt = X[0:2,:]
+print(xt)
+yt = clf_ada.predict(xt)
+print(yt)
+</code></pre>
+
+<h3>3.4 利用sklearn生成训练样本数据</h3>
+
+<p>因为没有时间系统学习sklearn，只能一边做一边学。比如<code>sklearn.datasets</code>这个东西，我已经在很多例子中看过到过了，貌似是里面有很多现成的数据，而且还有可以生成样本数据的函数。</p>
+
+<p>因为我想要一组可以测试算法的样本数据，恰巧就在<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">RandomForestClassifier</a>的文档中看到了<code>sklearn.datasets.make_classification(...)</code>这个函数。它可以用来生成一些简单的分类训练样本。</p>
+
+<p><code>make_classification</code>函数定义如下。其中比较重要的参数是<code>n_samples</code>、<code>n_features</code>、<code>n_classes</code>、<code>n_informative</code>、<code>n_redundant</code>。具体我也还没太弄明白，不过反正是能用了。有机会的话后面再研究。</p>
+
+<pre><code class="language-python">sklearn.datasets.make_classification(n_samples=100, n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, weights=None, flip_y=0.01, class_sep=1.0, hypercube=True, shift=0.0, scale=1.0, shuffle=True, random_state=None)
+</code></pre>
+
+<p>使用方法如下，生成6个特征、17个类的分类训练样本，样本个数为10000。</p>
+
+<pre><code class="language-python">from sklearn.datasets import make_classification
+X, y = make_classification(n_samples=10000, n_features=6, n_classes=17, n_informative=6, n_redundant=0, random_state=0, shuffle=False)
+</code></pre>
+
+<h2>4 Python相关</h2>
+
+<h3>4.1 PyCharm</h3>
+
+<p>PyCharm版本太久了，还是2015年的，果断换个2017年的再说。新安装之后，打开，需要在设置里，设置Python版本。毕竟差了两年啊。感觉新版本确实比旧版本要流畅，变量高亮啥的也好了很多。</p>
+
+<h3>4.2 从文本中获取训练数据</h3>
+
+<p>为了训练分类器，首先要把样本数据读进来。因为本次实验中使用的数据是国际象棋相关的，棋子的位置是用一个字母（a~h），加一个数字（1~8）表示的，而类别也是字符串（&rdquo;Draw&rdquo;、&rdquo;one&rdquo;等），为了处理简单，我首先把字母和类别字符串全部替换成了数字，放在“krkopt.txt”中。然后，使用<code>numpy</code>的<code>loadtxt</code>函数就可以把数据读进来。然后，再把数据分开来即可，如下面代码所示。</p>
+
+<pre><code class="language-python">import numpy as np
+
+dataset = np.loadtxt(&quot;krkopt.txt&quot;, delimiter=&quot;,&quot;)
+X = dataset[:,0:6]
+y = dataset[:,6]
+</code></pre>
+
+<p>不过有一点要注意。因为我也是第一次用这个玩意，也没有系统的学，只能自己一边试一边体会。</p>
+
+<ul>
+<li>我发现<code>dataset[:,0:6]</code>是获取了<code>dataset</code>的第1~6行，注意哦，如果是从0开始计的话，第1~6行对应的是0~5，但是在这里我们要写<code>dataset[:,0:6]</code>。</li>
+<li>再一点就是，<code>numpy</code>的矩阵形式如下面代码中的<code>a</code>所示，这是一个2*6的矩阵；向量如<code>b</code>所示。矩阵和向量是不同的，比如<code>c</code>就是一个矩阵。</li>
+<li>当我们取数据时，如果使用<code>a[0,:]</code>,那么你得到的结果就是<code>b</code>，是一个向量；如果使用<code>a[0：1,:]</code>,那么你得到的结果就是<code>c</code>，是一个矩阵。这个有什么用呢？我发现训练出来的分类器在predict时，输入的参数必须是矩阵形式，向量形式会报错。也就是说，即便你只想分类一组数据，你也需要使用矩阵，即<code>c</code>的形式。</li>
+</ul>
+
+<pre><code class="language-python">#(1)
+a = [[ 3., 2., 5.,7., 8., 6.],
+     [ 3., 2., 5.,7., 8., 7.]]
+
+#(2)
+b = [ 3., 2., 5.,7., 8., 6.]
+
+#(3)
+c = [[ 3., 2., 5.,7., 8., 6.]]
+</code></pre>
+
+<h3>4.3 Python计时</h3>
+
+<p>因为要比较不同算法的性能，希望能有像MATLAB中<code>tic</code>、<code>toc</code>这样的计时函数。百度之后，找到这篇帖子：<a href="http://www.linuxidc.com/Linux/2012-01/50672.htm">Python模仿matlab的tic/toc计时</a>。使用下面的代码可以实现类似的功能。其实，就是<code>time.clock()</code>这个函数。</p>
+
+<pre><code class="language-python">import time
+
+def tic():
+    globals()['tt'] = time.clock()
+
+def toc():
+    print( '\nElapsed time: %.8f seconds\n' % (time.clock()-globals()['tt']) )
+</code></pre>
+
+<p>不过，不要小看这几句代码。它可以帮助我学习Python。这里面有若干点值得学习的地方：</p>
+
+<ul>
+<li>首先是函数的写法，使用<code>def</code>，注意&rdquo;:&rdquo;</li>
+<li>然后是全局变量函数<code>globals()</code>，可以通过<code>globals()['tt']</code>这样的方式定义全局变量</li>
+<li>然后是<code>print()</code>函数参数的写法</li>
+</ul>
+
+<h3>4.4 Python生成随机数</h3>
+
+<pre><code class="language-python">import random
+# 生成随机数
+random.random()
+# 生成随机整数
+random.randint(a, b)
+</code></pre>
+
+<h3>4.5 Python行向量转列向量</h3>
+
+<p>参考：<a href="http://blog.csdn.net/xiaopangxia/article/details/53027198">Numpy数组转置</a>。Numpy数组转置很容易，两种种写法。</p>
+
+<pre><code class="language-python">np_array = np.array([[1, 2], [3, 4]])  
+np_array.transpose()  
+np.transpose(np_array) 
+</code></pre>
+
+<p>但是一维数组转置的时候有个坑，光<code>transpose</code>没有用，需要指定shape参数。原本一维数组的shape第二的纬度那个1是空的，指定了以后才能顺利地将行向量转为列向量。</p>
+
+<pre><code class="language-python">array_1d = np.array([1, 2])  
+print array_1d.shape, array_1d.transpose()  
+array_1d.shape = (2, 1)  
+print array_1d.shape, array_1d.transpose()  
+</code></pre>
+
+<p>输出结果：</p>
+
+<pre><code>(2,) [1 2]  
+(2, 1) [[1 2]] 
+</code></pre>
+
+<h3>4.6 Python求众数</h3>
+
+<pre><code class="language-python">coun = np.bincount(x)
+print coun
+print np.argmax(coun)
+</code></pre>
+
+<h3>4.7 numpy数据类型转换</h3>
+
+<p>参考：<a href="http://www.mamicode.com/info-detail-1180317.html">numpy数据类型dtype转换</a>。使用<code>astype()</code>：</p>
+
+<pre><code class="language-python">aaa = np.array([1.0, 1.2, 1])
+bbb = aaa.astype(int)
+print(bbb)
+</code></pre>
+
+<h3>4.8 一些东西</h3>
+
+<ul>
+<li>Python中的求幂和MATLAB不一样，符号为<code>**</code>。如，2的3次方为<code>2**3</code>。</li>
+<li>将浮点数转换为整数，和C++一样：<code>int(a)</code>。</li>
+</ul>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/icon.png);"></div>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    <div class="intro">人丑就要多读书</div>
+                </section>
+                <section class="recommend">
+                    
+                    
+                    <section class="nav next">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/article20171104-coding-dairy-matlab-qt-interface.html">利用cmd命令建立Qt（C&#43;&#43;）程序与MATLAB数据接口</a>
+                    </section>
+                    
+                </section>
+                
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//username.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        夜凉如水 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>

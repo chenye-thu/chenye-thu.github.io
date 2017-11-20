@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-11-04T14:16:27+08:00</updated>
+  <updated>2017-11-20T19:27:13+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>基于Python的机器学习框架scikit-learn学习笔记01</title>
+    <updated>2017-11-19T22:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-11-19:/article20171114-scikit-learn-01.html</id>
+    <content type="html">&lt;p&gt;基于Python的机器学习框架scikit-learn学习笔记01。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171114-scikit-learn-01.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>利用cmd命令建立Qt（C++）程序与MATLAB数据接口</title>
     <updated>2017-11-04T14:00:00+08:00</updated>
@@ -93,16 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-07-27:/coding-dairy-20170727.html</id>
     <content type="html">&lt;p&gt;编程记录：QCustomPlot通过代码设置数据点的选择。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/coding-dairy-20170727.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>Qt添加快捷键的方法</title>
-    <updated>2017-07-26T12:00:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-26:/coding-dairy-20170726.html</id>
-    <content type="html">&lt;p&gt;编程记录：使用用Qt的&lt;code&gt;QShortcut&lt;/code&gt;类和&lt;code&gt;QKeySequence&lt;/code&gt;类添加快捷键。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170726.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>
