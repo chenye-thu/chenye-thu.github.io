@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夜凉如水">
+<meta name="twitter:description" content="人丑就要多读书">
+<meta name="twitter:image:src" content="http://chenye-thu.github.io/images/avatar.png">
+
+<meta property="og:url" content="http://chenye-thu.github.io">
+<meta property="og:title" content="夜凉如水">
+<meta property="og:description" content="人丑就要多读书">
+<meta property="og:site_name" content="夜凉如水">
+<meta property="og:image" content="http://chenye-thu.github.io/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="夜凉如水">
+<meta itemprop="description" content="人丑就要多读书">
+<meta itemprop="image" content="http://chenye-thu.github.io/images/avatar.png">
+
+<link rel="canonical" href="http://chenye-thu.github.io">
+
+<link rel="shortcut icon" href="/favicon.png">
+<link rel="apple-itouch-icon" href="/favicon.png">
+<link rel="stylesheet" href="/bundle/index.css">
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="机器学习,Python,scikit-learn,编程,">
+        <meta name="description" content="基于Python的机器学习框架scikit-learn学习笔记02">
+        <meta name="author" content="夜凉如水">
+        <title>基于Python的机器学习框架scikit-learn学习笔记02</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap">
+  <a class="index" href="/">
+    <img class="logo" src="/images/avatar.png" />
+    夜凉如水
+  </a>
+  <ul class="menu">
+      <li class="menu-item"><a href="/archive.html">归档</a></li>
+      <li class="menu-item"><a href="/tag.html">标签</a></li>
+      <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+  </ul>
+</header>
+
+            <article class="main article">
+                <h1 class="title">基于Python的机器学习框架scikit-learn学习笔记02</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/icon.png);"></span>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    
+                    <span class="date" data-time="1511348400"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0/index.html">机器学习</a><a class="tag" href="/tag/Python/index.html">Python</a><a class="tag" href="/tag/scikit-learn/index.html">scikit-learn</a><a class="tag" href="/tag/%e7%bc%96%e7%a8%8b/index.html">编程</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>2017-11-20 周一 晴 北京 清华大学 开始<br>
+2017-11-20 周一 晴 北京 清华大学 完成</p>
+</blockquote>
+
+<h2>1 scikit-learn的使用</h2>
+
+<h3>1.1 DecisionTreeRegressor</h3>
+
+<p>基于决策树的回归器<a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html">DecisionTreeRegressor</a>位于<code>sklearn.tree</code>。官方文档地址：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html">http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html</a>。在文档的最后，有几个使用了DecisionTreeRegressor的例子。</p>
+
+<p>DecisionTreeRegressor定义：</p>
+
+<pre><code class="language-python">class sklearn.tree.DecisionTreeRegressor(criterion=’mse’, splitter=’best’, max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features=None, random_state=None, max_leaf_nodes=None, min_impurity_decrease=0.0, min_impurity_split=None, presort=False)
+</code></pre>
+
+<p>其比较重要的几个参数意义如下。其实默认的参数值应该就是我们需要的bagging，我们最多改改基学习器个数<code>n_estimators</code>。</p>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+<th>默认</th>
+<th>备注</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>base_estimator</td>
+<td>基学习器</td>
+<td>None，对应决策树</td>
+<td></td>
+</tr>
+
+<tr>
+<td>n_estimators</td>
+<td>基学习器个数</td>
+<td>10</td>
+<td>int型</td>
+</tr>
+
+<tr>
+<td>max_samples</td>
+<td>样本抽取个数或比例</td>
+<td>1.0</td>
+<td>整数对应个数，小数则对应比例</td>
+</tr>
+
+<tr>
+<td>max_features</td>
+<td>特征抽取个数或比例</td>
+<td>1.0</td>
+<td>整数对应个数，小数则对应比例</td>
+</tr>
+
+<tr>
+<td>bootstrap</td>
+<td>样本抽取是否放回</td>
+<td>True</td>
+<td>bool型</td>
+</tr>
+
+<tr>
+<td>bootstrap_features</td>
+<td>特征抽取是否放回</td>
+<td>false</td>
+<td>bool型</td>
+</tr>
+
+<tr>
+<td>oob_score</td>
+<td>是否用bag外样本估计误差</td>
+<td></td>
+<td>bool型</td>
+</tr>
+</tbody>
+</table>
+
+<p>使用下面的代码训练了一个DecisionTreeRegressor，真的非常简单。声明分类器，<code>fit</code>用于训练，<code>predict</code>用于分类。关于加载样本数据相关的内容，在本文的后面。</p>
+
+<pre><code class="language-python">import numpy as np
+from sklearn.ensemble import BaggingClassifier
+
+# 加载样本数据
+dataset = np.loadtxt(&quot;krkopt.txt&quot;, delimiter=&quot;,&quot;)
+X = dataset[:,0:6]
+y = dataset[:,6]
+
+# 训练分类器
+bagging = BaggingClassifier()
+bagging.fit(X, y)
+
+# 测试：用训练好的分类器分类
+xt = [[ 3., 2., 5.,7., 8., 6.],
+      [ 3., 2., 5.,7., 8., 7.]]
+yt = bagging.predict(xt)
+print(yt)
+</code></pre>
+
+<p>另外，如果想要计算错误率的话，不用自己费事计算理论，直接用<code>Classifier.score(XTest, yTest)</code>就可以计算预测正确率。其中<code>XTest</code>是测试输入，<code>yTest</code>是与之对应的正确结果。</p>
+
+<h3>1.4 利用sklearn生成训练样本数据</h3>
+
+<p>因为没有时间系统学习sklearn，只能一边做一边学。比如<code>sklearn.datasets</code>这个东西，我已经在很多例子中看过到过了，貌似是里面有很多现成的数据，而且还有可以生成样本数据的函数。</p>
+
+<p>因为我想要一组可以测试算法的样本数据，恰巧就在<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">RandomForestClassifier</a>的文档中看到了<code>sklearn.datasets.make_classification(...)</code>这个函数。它可以用来生成一些简单的分类训练样本。</p>
+
+<p><code>make_classification</code>函数定义如下。其中比较重要的参数是<code>n_samples</code>、<code>n_features</code>、<code>n_classes</code>、<code>n_informative</code>、<code>n_redundant</code>。具体我也还没太弄明白，不过反正是能用了。有机会的话后面再研究。</p>
+
+<pre><code class="language-python">sklearn.datasets.make_classification(n_samples=100, n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2, weights=None, flip_y=0.01, class_sep=1.0, hypercube=True, shift=0.0, scale=1.0, shuffle=True, random_state=None)
+</code></pre>
+
+<p>使用方法如下，生成6个特征、17个类的分类训练样本，样本个数为10000。</p>
+
+<pre><code class="language-python">from sklearn.datasets import make_classification
+X, y = make_classification(n_samples=10000, n_features=6, n_classes=17, n_informative=6, n_redundant=0, random_state=0, shuffle=False)
+</code></pre>
+
+<h2>2 Python相关</h2>
+
+<h3>2.1 随机抽样与bootstrap抽样</h3>
+
+<p>对于保存在向量中的数据，随机抽出它们的序号即可。</p>
+
+<ul>
+<li>随机抽样，不重复：从nSamples个数据中抽出nSamples_train个数据。</li>
+</ul>
+
+<pre><code class="language-python">import random
+indexs = random.sample( xrange(nSamples), nSamples_train )
+</code></pre>
+
+<ul>
+<li>bootstrap抽样，有重复从nSamples个数据中有重复地抽出nSamples个数据。注意：<code>numpy.random.randint( 0, nSamples, nSamples )</code>最大抽到<code>nSamples-1</code>。</li>
+</ul>
+
+<pre><code class="language-python">import numpy
+indexs = numpy.random.randint( 0, nSamples, nSamples )
+</code></pre>
+
+<h3>2.2 range()与xrange()的区别</h3>
+
+<p>range()生成一个向量（list），xrange()返回一个生成器。xrange()更节省空间，特别是长度比较大时，使用xrange()更好。
+但是要注意的是，Python 3里已经没有xrange()了，所以以上只有在Python 2管用。</p>
+
+<h3>2.3 numpy删除向量中的元素</h3>
+
+<p>使用<code>numpy.delete()</code>，第二个参数为要删除元素的序号，重复只起一次作用。</p>
+
+<pre><code class="language-python">aaa = np.array( range(10) )
+bbb = np.delete(aaa, [1, 2, 1, 3, 1])
+</code></pre>
+
+<p>得到结果：</p>
+
+<pre><code>bbb = [0, 4, 5, 6, 7, 8, 9]
+</code></pre>
+
+<h3>2.4 numpy.loadtxt()</h3>
+
+<p>从文本中加载样本数据用到<code>numpy.loadtxt()</code>，如果样本中第一行是各个数据的名称，我们不需要。这时候设置参数<code>skiprows</code>即可，其意义是忽略文本的前<code>skiprows</code>行。比如我们想忽略第一行，设置<code>skiprows=1</code>即可。</p>
+
+<pre><code class="language-python">dataset = np.loadtxt(&quot;CASP.csv&quot;, delimiter=&quot;,&quot;, skiprows=1)
+</code></pre>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/icon.png);"></div>
+                    <a class="name" href="/about.me.html">夜凉如水</a>
+                    <div class="intro">人丑就要多读书</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        <div class="head">上篇文章</div>
+                        <a class="link" href="/article20171213-machine-learning-project03.html">机器学习课第三次作业记录</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/article20171119-machine-learning-project01.html">机器学习课第一次作业记录</a>
+                    </section>
+                    
+                </section>
+                
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//username.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        夜凉如水 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>

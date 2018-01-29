@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>夜凉如水</title>
   <id>http://chenye-thu.github.io</id>
-  <updated>2017-11-20T19:27:13+08:00</updated>
+  <updated>2018-01-29T22:37:00+08:00</updated>
   <subtitle>人丑就要多读书</subtitle>
   <link href="http://chenye-thu.github.io"></link>
   <author>
     <name>夜凉如水</name>
   </author>
+  <entry>
+    <title>阿里云云服务器ECS购买和初步使用</title>
+    <updated>2018-01-29T21:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2018-01-29:/article20180129-ecs01.html</id>
+    <content type="html">&lt;p&gt;阿里云云服务器ECS购买和初步使用。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20180129-ecs01.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Markdown中加入公式</title>
+    <updated>2017-12-29T16:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-12-29:/article20171229-markdown-equation.html</id>
+    <content type="html">&lt;p&gt;Markdown中加入公式。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171229-markdown-equation.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>机器学习课第三次作业记录</title>
+    <updated>2017-12-31T14:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-12-31:/article20171213-machine-learning-project03.html</id>
+    <content type="html">&lt;p&gt;机器学习课第三次作业记录：频繁模式挖掘。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171213-machine-learning-project03.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>基于Python的机器学习框架scikit-learn学习笔记02</title>
+    <updated>2017-11-22T19:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-11-22:/article20171114-scikit-learn-02.html</id>
+    <content type="html">&lt;p&gt;基于Python的机器学习框架scikit-learn学习笔记02。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171114-scikit-learn-02.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
+  <entry>
+    <title>机器学习课第一次作业记录</title>
+    <updated>2017-11-20T14:00:00+08:00</updated>
+    <id>tag:chenye-thu.github.io,2017-11-20:/article20171119-machine-learning-project01.html</id>
+    <content type="html">&lt;p&gt;机器学习课第一次作业记录：Bagging与Random Forest；MultiBoosting与Iterative Bagging。&lt;/p&gt;&#xA;</content>
+    <link href="http://chenye-thu.github.io/article20171119-machine-learning-project01.html"></link>
+    <author>
+      <name>夜凉如水</name>
+    </author>
+  </entry>
   <entry>
     <title>基于Python的机器学习框架scikit-learn学习笔记01</title>
     <updated>2017-11-19T22:00:00+08:00</updated>
@@ -53,56 +103,6 @@
     <id>tag:chenye-thu.github.io,2017-10-28:/article20171028-try-coding-dynamic-pages.html</id>
     <content type="html">&lt;p&gt;体验coding.net动态Pages功能：coding.net配置公钥；使用Git管理仓库；博客程序Typecho在动态Coding Pages上的安装。&lt;/p&gt;&#xA;</content>
     <link href="http://chenye-thu.github.io/article20171028-try-coding-dynamic-pages.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>诗一首——河流</title>
-    <updated>2017-10-25T13:37:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-10-25:/article20171025-poem-river.html</id>
-    <content type="html">&lt;p&gt;诗一首——河流&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/article20171025-poem-river.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>诗一首——山顶</title>
-    <updated>2017-10-25T13:25:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-10-25:/article20171025-poem-mountain-top.html</id>
-    <content type="html">&lt;p&gt;诗一首——山顶&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/article20171025-poem-mountain-top.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>诗一首——我的河流</title>
-    <updated>2017-10-25T13:10:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-10-25:/article20171025-poem-my-river.html</id>
-    <content type="html">&lt;p&gt;诗一首——我的河流&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/article20171025-poem-my-river.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>离子在物质中的能损和射程计算软件——SRIM的安装</title>
-    <updated>2017-10-23T19:55:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-10-23:/article20171023-srim-install.html</id>
-    <content type="html">&lt;p&gt;离子在物质中的能损和射程计算软件——SRIM（The Stopping and Range of Ions in Matter）的安装。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/article20171023-srim-install.html"></link>
-    <author>
-      <name>夜凉如水</name>
-    </author>
-  </entry>
-  <entry>
-    <title>QCustomPlot通过代码设置数据点的选择</title>
-    <updated>2017-07-27T17:00:00+08:00</updated>
-    <id>tag:chenye-thu.github.io,2017-07-27:/coding-dairy-20170727.html</id>
-    <content type="html">&lt;p&gt;编程记录：QCustomPlot通过代码设置数据点的选择。&lt;/p&gt;&#xA;</content>
-    <link href="http://chenye-thu.github.io/coding-dairy-20170727.html"></link>
     <author>
       <name>夜凉如水</name>
     </author>
